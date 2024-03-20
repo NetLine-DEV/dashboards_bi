@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+$primary-color: #000357;
+$white-color: #FFFFFF;
+$green-btn: #3FBC2B;
+$black-color: #000000;
+
+* {
+  margin: 0;
+  padding: 0;
+  background-origin: padding-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
