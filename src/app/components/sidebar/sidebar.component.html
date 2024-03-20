@@ -1,19 +1,20 @@
-<aside class="sidebar-menu">
+<aside class="sidebar-menu" [ngClass]="statusSideBar ? 'reduced' : 'complete'">
   <div class="logo">
-    <img ngSrc="assets/logo.png" alt="" height="48" width="170">
+    <img *ngIf="!statusSideBar" ngSrc="assets/logo.png" alt="" height="48" width="170" [ngClass]="statusSideBar ? 'invisible' : 'visible'">
+    <img *ngIf="statusSideBar" ngSrc="assets/sublogo.png" alt="" height="64" width="64">
   </div>
   <nav>
     <ul>
-      <li><a href="#"><i class="fa-solid fa-house"></i> Home</a></li>
-      <li><a href="#"><i class="fa-solid fa-rectangle-xmark"></i> Cancelamentos</a></li>
-      <li><a href="#"><i class="fa-solid fa-hand-holding-dollar"></i> Cobrança</a></li>
+      <li><a href="#"><i class="fa-solid fa-house"></i> <span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Home</span></a></li>
+      <li><a href="#"><i class="fa-solid fa-rectangle-xmark"></i> <span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Cancelamentos</span></a></li>
+      <li><a href="#"><i class="fa-solid fa-hand-holding-dollar"></i> <span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Cobrança</span></a></li>
       <li>
         <div class="row">
           <div class="col">
             <div ngbDropdown class="d-inline-block">
               <a id="dropdownBasic1" ngbDropdownToggle>
                 <i class="fa-solid fa-cart-shopping"></i>
-                Comercial
+                <span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Comercial</span>
               </a>
               <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown_menu">
                 <a href="#" ngbDropdownItem>Comercial</a>
@@ -30,7 +31,7 @@
             <div ngbDropdown class="d-inline-block">
               <a id="dropdownBasic1" ngbDropdownToggle>
                 <i class="fa-solid fa-magnifying-glass"></i>
-                Consulta ISP
+                <span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Consulta ISP</span>
               </a>
               <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown_menu">
                 <a href="#" ngbDropdownItem>Consulta Extrato Financeiro</a>
@@ -46,7 +47,7 @@
             <div ngbDropdown class="d-inline-block">
               <a id="dropdownBasic1" ngbDropdownToggle>
                 <i class="fa-solid fa-sack-dollar"></i>
-                Contas a Pagar
+                <span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Contas a Pagar</span>
               </a>
               <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown_menu">
                 <a href="#" ngbDropdownItem>Inserir Conta</a>
@@ -56,14 +57,14 @@
           </div>
         </div>
       </li>
-      <li><a href="#"><i class="fa-solid fa-bullseye"></i> Markting</a></li>
+      <li><a href="#"><i class="fa-solid fa-bullseye"></i> <span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Markting</span></a></li>
       <li id="dropdown_parceiros" class="dropdown">
         <div class="row">
           <div class="col">
             <div ngbDropdown class="d-inline-block">
               <a id="dropdownBasic1" ngbDropdownToggle>
                 <i class="fa-solid fa-handshake"></i> 
-                Parceiros
+                <span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Parceiros</span>
               </a>
               <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown_menu">
                 <a href="#" ngbDropdownItem>Comissão</a>
@@ -80,7 +81,7 @@
             <div ngbDropdown class="d-inline-block">
               <a id="dropdownBasic1" ngbDropdownToggle>
                 <i class="fa-solid fa-people-line"></i>
-                Recursos Humanos
+                <span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Recursos Humanos</span>
               </a>
               <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown_menu">
                 <a href="#" ngbDropdownItem>Adicionar Treinamento</a>
@@ -105,7 +106,7 @@
             <div ngbDropdown class="d-inline-block">
               <a id="dropdownBasic1" ngbDropdownToggle>
                 <i class="fa-solid fa-user-gear"></i>
-                Serviços
+                <span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Serviços</span>
               </a>
               <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown_menu">
                 <a href="#" ngbDropdownItem>Adicionar Serviço</a>
@@ -118,12 +119,15 @@
     </ul>
   </nav>
   <div class="options">
-    <div class="logout">
+    <div class="logout" [ngClass]="statusSideBar ? 'logout_reduced' : 'logout_complete'">
       <i class="fa-solid fa-right-from-bracket"></i>
-      Sair
+      <span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Sair</span>
     </div>
     <div class="contract-sidebar">
-      <button><i class="fa-solid fa-arrow-left"></i></button>
+      <button (click)="toggleSideBar()">
+        <i class="fa-solid fa-arrow-left" *ngIf="!statusSideBar"></i>
+        <i class="fa-solid fa-arrow-right" *ngIf="statusSideBar"></i>
+      </button>
     </div>
   </div>
 </aside>
