@@ -1,0 +1,31 @@
+<div class="login-page">
+  <section class="form-login">
+    <img src="/assets/logo.png" alt="" width="280">
+    <form>
+      <div class="inputs user">
+        <label for="user">Usuário</label>
+        <div class="inputs-icon">
+          <input type="text" name="user" id="user" placeholder="Insira seu usuário">
+          <div class="icon">
+            <i class="fa-solid fa-user"></i>
+          </div>
+        </div>
+      </div>
+      <div class="inputs password">
+        <label for="password">Senha</label>
+          <div class="inputs-icon">
+            <input type="password" name="password" id="password" placeholder="Insira sua senha">
+            <div class="icon">
+              <i class="fa-solid fa-unlock"></i>
+            </div>
+          </div>
+      </div>
+      <button (click)="login()">
+        Entrar
+      </button>
+    </form>
+  </section>
+  <section class="left-section">
+    <img src="/assets/sublogo.png" alt="Logo da empresa Netlin, logo verde com um N no centro">
+  </section>
+</div>

@@ -1,0 +1,98 @@
+@import '../../../../styles.scss';
+@import '../../../styles/variables';
+
+.login-page {
+  height: 100%;
+  @include flex-center;
+
+  section {
+    height: 100%
+  }
+
+  .left-section {
+    @include flex-center;
+    flex-direction: column;
+    flex-grow: 1;
+    border-radius: 0 24px 24px 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      max-width: 600px;
+      max-height: 600px;
+      filter: drop-shadow(0px 0px 15px #00000052);
+    }
+  }
+
+  .form-login {
+    @include flex-center;
+    flex-direction: column;
+    flex-grow: .2;
+    gap: 4rem;
+    color: $white-color;
+    background-color: $primary-color;
+    position: relative;
+    box-shadow: 0px 0px 25px #00000085;
+
+    img {
+      position: absolute;
+      top: 50px;
+    }
+
+    form {
+      padding: 0 2rem;
+      width: 100%;
+      @include flex-center;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .inputs {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      label {
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      .inputs-icon {
+        display: flex;
+        align-items: center;
+      }
+
+      .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 45px;
+        border-radius: 0 5px 5px 0;
+        background-color: $green-btn;
+      }
+
+      input {
+        height: 45px;
+        width: 100%;
+        padding: 0 .5rem;
+        border: none;
+        border-radius: 5px 0 0 5px;
+        outline: none;
+      }
+
+    }
+    button {
+      height: 45px;
+      width: 100%;
+      margin-top: 1rem;
+      border: none;
+      border-radius: 5px;
+      color: $white-color;
+      font-weight: bold;
+      font-size: 18px;
+      background-color: $green-btn;
+      box-shadow: 0px 0px 25px #00000085;
+    }
+  }
+}

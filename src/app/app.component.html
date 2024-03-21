@@ -1,2 +1,6 @@
-<sidebar-component />
-<router-outlet />
+<div class="app">
+  <sidebar-component *ngIf="showSideBar"/>
+  <div class="routes">
+    <router-outlet />
+  </div>
+</div>
