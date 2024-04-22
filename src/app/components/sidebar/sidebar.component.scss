@@ -26,8 +26,15 @@
     transition: all .2s ease-in-out;
   }
 
+  nav {
+    flex-grow: 1;
+    margin: 4rem 0;
+  }
+
   ul {
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     gap: 2rem;
 

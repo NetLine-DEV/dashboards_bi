@@ -12,12 +12,13 @@ export class LoginService {
   private token: string = '';
 
   sideMenu = new EventEmitter<boolean>();
+  errorLogin = new EventEmitter<boolean>();
   router = inject(Router)
   http = inject(HttpClient);
 
   login(userLogin: FormBuilder) {
     try {
-      return this.http.post<FormBuilder>('/api/login/', userLogin).subscribe(
+      return this.http.post<FormBuilder>('http://relatorios.netlinetelecom.com.br:60012/login/', userLogin).subscribe(
         (res) => {
           const stringToken = JSON.stringify(res);
           const removeTenInitial = stringToken.substring(10);
@@ -26,7 +27,7 @@ export class LoginService {
           window.localStorage.setItem("token", this.token);
           this.router.navigate(['/']);
         },
-        (err) => console.error(err)
+        (err) => this.errorLogin.emit(true)
       );
     } catch (error) {
       console.error(error);
