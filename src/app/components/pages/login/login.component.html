@@ -1,11 +1,11 @@
 <div class="login-page">
   <section class="form-login">
     <img src="/assets/logo.png" alt="" width="280">
-    <form>
+    <form [formGroup]="form" (submit)="login()">
       <div class="inputs user">
         <label for="user">Usuário</label>
         <div class="inputs-icon">
-          <input type="text" name="user" id="user" placeholder="Insira seu usuário">
+          <input type="text" name="user" id="user" placeholder="Insira seu usuário" formControlName="user">
           <div class="icon">
             <i class="fa-solid fa-user"></i>
           </div>
@@ -14,13 +14,13 @@
       <div class="inputs password">
         <label for="password">Senha</label>
           <div class="inputs-icon">
-            <input type="password" name="password" id="password" placeholder="Insira sua senha">
+            <input type="password" name="password" id="password" placeholder="Insira sua senha" formControlName="password">
             <div class="icon">
               <i class="fa-solid fa-unlock"></i>
             </div>
           </div>
       </div>
-      <button (click)="login()">
+      <button type="submit">
         Entrar
       </button>
     </form>

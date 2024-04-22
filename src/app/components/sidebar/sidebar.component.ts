@@ -13,6 +13,7 @@ import { LoginService } from '../../services/login/login.service';
 export class SidebarComponent { 
   statusSideBar: boolean = false;
   authService = inject(LoginService);
+  permissions = this.authService.decodedToken();
 
   toggleSideBar() {
     this.statusSideBar =!this.statusSideBar;

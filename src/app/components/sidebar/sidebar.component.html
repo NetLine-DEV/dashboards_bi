@@ -5,116 +5,26 @@
   </div>
   <nav>
     <ul>
-      <li><a href="#"><i class="fa-solid fa-house"></i> <span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Home</span></a></li>
-      <li><a href="#"><i class="fa-solid fa-rectangle-xmark"></i> <span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Cancelamentos</span></a></li>
-      <li><a href="#"><i class="fa-solid fa-hand-holding-dollar"></i> <span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Cobrança</span></a></li>
-      <li>
-        <div class="row">
-          <div class="col">
-            <div ngbDropdown class="d-inline-block">
-              <a id="dropdownBasic1" ngbDropdownToggle>
-                <i class="fa-solid fa-cart-shopping"></i>
-                <span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Comercial</span>
-              </a>
-              <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown_menu">
-                <a href="#" ngbDropdownItem>Comercial</a>
-                <a href="#" ngbDropdownItem>Evolução</a>
-                <a href="#" ngbDropdownItem>Itaporanga</a>
-              </div>
-            </div>
-          </div>
-        </div>
+      <li *ngIf="permissions.includes('usuarios.dashboard_contas_receber')">
+        <a href="/contas_a_receber"><i class="fa-solid fa-file-invoice-dollar"></i><span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Dashboard de Contas a receber</span></a>
       </li>
-      <li>
-        <div class="row">
-          <div class="col">
-            <div ngbDropdown class="d-inline-block">
-              <a id="dropdownBasic1" ngbDropdownToggle>
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Consulta ISP</span>
-              </a>
-              <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown_menu">
-                <a href="#" ngbDropdownItem>Consulta Extrato Financeiro</a>
-                <a href="#" ngbDropdownItem>Contratos sem atendimento</a>
-              </div>
-            </div>
-          </div>
-        </div>
+      <li *ngIf="permissions.includes('usuarios.dashboard_estrutura')">
+        <a href="/estrutura"><i class="fa-solid fa-tower-cell"></i><span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Dashboard de Estrutura</span></a>
       </li>
-      <li>
-        <div class="row">
-          <div class="col">
-            <div ngbDropdown class="d-inline-block">
-              <a id="dropdownBasic1" ngbDropdownToggle>
-                <i class="fa-solid fa-sack-dollar"></i>
-                <span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Contas a Pagar</span>
-              </a>
-              <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown_menu">
-                <a href="#" ngbDropdownItem>Inserir Conta</a>
-                <a href="#" ngbDropdownItem>Listar Contas</a>
-              </div>
-            </div>
-          </div>
-        </div>
+      <li *ngIf="permissions.includes('usuarios.dashboard_financeiro_service_desk')">
+        <a href="/financeiro_service_desk"><i class="fa-solid fa-headset"></i><span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Dashboard de Financeiro / Service Desk</span></a>
       </li>
-      <li><a href="#"><i class="fa-solid fa-bullseye"></i> <span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Markting</span></a></li>
-      <li id="dropdown_parceiros" class="dropdown">
-        <div class="row">
-          <div class="col">
-            <div ngbDropdown class="d-inline-block">
-              <a id="dropdownBasic1" ngbDropdownToggle>
-                <i class="fa-solid fa-handshake"></i> 
-                <span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Parceiros</span>
-              </a>
-              <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown_menu">
-                <a href="#" ngbDropdownItem>Comissão</a>
-                <a href="#" ngbDropdownItem>Contratos Ativos</a>
-                <a href="#" ngbDropdownItem>Meta Geral</a>
-              </div>
-            </div>
-          </div>
-        </div>
+      <li *ngIf="permissions.includes('usuarios.dashboard_faturamento')">
+        <a href="/faturamento"><i class="fa-solid fa-boxes-stacked"></i><span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Dashboard de Faturamento</span></a>
       </li>
-      <li>
-        <div class="row">
-          <div class="col">
-            <div ngbDropdown class="d-inline-block">
-              <a id="dropdownBasic1" ngbDropdownToggle>
-                <i class="fa-solid fa-people-line"></i>
-                <span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Recursos Humanos</span>
-              </a>
-              <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown_menu">
-                <a href="#" ngbDropdownItem>Adicionar Treinamento</a>
-                <a href="#" ngbDropdownItem>Adicionar Hora Extra</a>
-                <a href="#" ngbDropdownItem>Analisar Solicitações</a>
-                <a href="#" ngbDropdownItem>Analisar Hora Extra</a>
-                <a href="#" ngbDropdownItem>Contra Cheque</a>
-                <a href="#" ngbDropdownItem>Extrato Horas Extras</a>
-                <a href="#" ngbDropdownItem>Listar Horas Extras</a>
-                <a href="#" ngbDropdownItem>Listar Horas Extras do Ponto</a>
-                <a href="#" ngbDropdownItem>Listar Horas Extras Inseridas</a>
-                <a href="#" ngbDropdownItem>Listar Treinamentos</a>
-                <a href="#" ngbDropdownItem>Solicitação de Folga</a>
-              </div>
-            </div>
-          </div>
-        </div>
+      <li *ngIf="permissions.includes('usuarios.dashboard_instalacao_suporte')">
+        <a href="/instalacao_suporte"><i class="fa-solid fa-screwdriver-wrench"></i><span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Dashboard de Instalação / Suporte</span></a>
       </li>
-      <li>
-        <div class="row">
-          <div class="col">
-            <div ngbDropdown class="d-inline-block">
-              <a id="dropdownBasic1" ngbDropdownToggle>
-                <i class="fa-solid fa-user-gear"></i>
-                <span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Serviços</span>
-              </a>
-              <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown_menu">
-                <a href="#" ngbDropdownItem>Adicionar Serviço</a>
-                <a href="#" ngbDropdownItem>Listar Serviço</a>
-              </div>
-            </div>
-          </div>
-        </div>
+      <li *ngIf="permissions.includes('usuarios.dashboard_comercial')">
+        <a href="/vendas"><i class="fa-solid fa-cart-shopping"></i><span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Dashboard de Vendas</span></a>
+      </li>
+      <li *ngIf="permissions.includes('usuarios.dashboard_direcao')">
+        <a href="/direcao"><i class="fa-solid fa-person-chalkboard"></i><span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Dashboard direção</span></a>
       </li>
     </ul>
   </nav>
