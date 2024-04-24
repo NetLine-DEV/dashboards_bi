@@ -1,7 +1,7 @@
 <aside class="sidebar-menu" [ngClass]="statusSideBar ? 'reduced' : 'complete'">
   <div class="logo">
-    <img *ngIf="!statusSideBar" src="assets/logo.png" alt="" width="170" [ngClass]="statusSideBar ? 'invisible' : 'visible'">
-    <img *ngIf="statusSideBar" src="assets/sublogo.png" alt="" height="64" width="64">
+    <img *ngIf="!statusSideBar" src="assets/logo.png" alt="" [ngClass]="statusSideBar ? 'invisible' : 'visible'">
+    <img *ngIf="statusSideBar" src="assets/sublogo.png">
   </div>
   <nav>
     <ul>

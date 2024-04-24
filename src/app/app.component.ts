@@ -19,7 +19,6 @@ export class AppComponent implements OnInit{
   showSideBar: boolean = false;
 
   ngOnInit(): void {
-    console.log(this.showSideBar)
     this.authService.sideMenu.subscribe(status => this.showSideBar = status);
   }
 }
