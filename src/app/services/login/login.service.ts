@@ -18,7 +18,7 @@ export class LoginService {
 
   login(userLogin: FormBuilder) {
     try {
-      return this.http.post<FormBuilder>('http://relatorios.netlinetelecom.com.br:60012/login/', userLogin).subscribe(
+      return this.http.post<FormBuilder>('/api/login/', userLogin).subscribe(
         (res) => {
           const stringToken = JSON.stringify(res);
           const removeTenInitial = stringToken.substring(10);

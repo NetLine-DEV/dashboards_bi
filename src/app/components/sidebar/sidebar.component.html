@@ -6,37 +6,37 @@
   <nav>
     <ul>
       <li *ngIf="permissions.includes('usuarios.dashboard_contas_receber')">
-        <a href="/contas_a_receber"><i class="fa-solid fa-file-invoice-dollar"></i><span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Dashboard de Contas a receber</span></a>
+        <a href="/contas_a_receber"><i class="bi bi-piggy-bank-fill"></i><span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Dashboard de Contas a receber</span></a>
       </li>
       <li *ngIf="permissions.includes('usuarios.dashboard_estrutura')">
-        <a href="/estrutura"><i class="fa-solid fa-tower-cell"></i><span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Dashboard de Estrutura</span></a>
+        <a href="/estrutura"><i class="bi bi-building"></i><span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Dashboard de Estrutura</span></a>
       </li>
       <li *ngIf="permissions.includes('usuarios.dashboard_financeiro_service_desk')">
-        <a href="/financeiro_service_desk"><i class="fa-solid fa-headset"></i><span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Dashboard de Financeiro / Service Desk</span></a>
+        <a href="/financeiro_service_desk"><i class="bi bi-headset"></i><span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Dashboard de Financeiro / Service Desk</span></a>
       </li>
       <li *ngIf="permissions.includes('usuarios.dashboard_faturamento')">
-        <a href="/faturamento"><i class="fa-solid fa-boxes-stacked"></i><span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Dashboard de Faturamento</span></a>
+        <a href="/faturamento"><i class="bi bi-boxes"></i><span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Dashboard de Faturamento</span></a>
       </li>
       <li *ngIf="permissions.includes('usuarios.dashboard_instalacao_suporte')">
-        <a href="/instalacao_suporte"><i class="fa-solid fa-screwdriver-wrench"></i><span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Dashboard de Instalação / Suporte</span></a>
+        <a href="/instalacao_suporte"><i class="bi bi-gear-fill"></i><span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Dashboard de Instalação / Suporte</span></a>
       </li>
       <li *ngIf="permissions.includes('usuarios.dashboard_comercial')">
-        <a href="/vendas"><i class="fa-solid fa-cart-shopping"></i><span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Dashboard de Vendas</span></a>
+        <a href="/vendas"><i class="bi bi-cart-fill"></i><span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Dashboard de Vendas</span></a>
       </li>
       <li *ngIf="permissions.includes('usuarios.dashboard_direcao')">
-        <a href="/direcao"><i class="fa-solid fa-person-chalkboard"></i><span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Dashboard direção</span></a>
+        <a href="/direcao"><i class="bi bi-kanban-fill"></i><span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Dashboard direção</span></a>
       </li>
     </ul>
   </nav>
   <div class="options">
     <div class="logout" [ngClass]="statusSideBar ? 'logout_reduced' : 'logout_complete'" (click)="logout()">
-      <i class="fa-solid fa-right-from-bracket"></i>
+      <i class="bi bi-box-arrow-left"></i>
       <span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Sair</span>
     </div>
     <div class="contract-sidebar">
       <button (click)="toggleSideBar()">
-        <i class="fa-solid fa-arrow-left" *ngIf="!statusSideBar"></i>
-        <i class="fa-solid fa-arrow-right" *ngIf="statusSideBar"></i>
+        <i class="bi bi-caret-left-fill" *ngIf="!statusSideBar"></i>
+        <i class="bi bi-caret-right-fill" *ngIf="statusSideBar"></i>
       </button>
     </div>
   </div>

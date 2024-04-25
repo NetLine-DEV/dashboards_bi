@@ -37,7 +37,7 @@
     justify-content: center;
     flex-direction: column;
     gap: .5rem;
-
+    
     li {
       cursor: pointer;
       list-style: none;
@@ -66,12 +66,14 @@
     gap: 1rem;
 
     .logout {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 50%;
       height: 40px;
       font-weight: bold;
       font-size: 18px;
       text-align: center;
-      line-height: 40px;
       color: $primary-color;
       border-radius: 999px;
       cursor: pointer;
