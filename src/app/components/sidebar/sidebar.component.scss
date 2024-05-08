@@ -69,6 +69,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: 4px;
       width: 50%;
       height: 40px;
       font-weight: bold;
@@ -79,6 +80,10 @@
       cursor: pointer;
       background-color: $white-color;
       transition: all .2s ease-in-out;
+
+      i {
+        height: min-content;
+      }
     }
 
     .logout_reduced {

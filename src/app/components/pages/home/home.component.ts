@@ -23,7 +23,5 @@ export class HomeComponent implements OnInit {
     const decoded = jwtDecode(this.token);
     const tokenJSON = JSON.stringify(decoded);
     const tokenObject = JSON.parse(tokenJSON);
-
-    console.log(tokenObject.permissoes);
   }
 }
