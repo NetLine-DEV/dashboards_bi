@@ -10,6 +10,7 @@ import { InstallationComponent } from './components/pages/installation/installat
 import { DirectorsComponent } from './components/pages/directors/directors.component';
 import { BillingComponent } from './components/pages/billing/billing.component';
 import { accessGuard } from './guards/access.guard';
+import { ProductivityGratificationComponent } from './components/pages/productivity-gratification/productivity-gratification.component';
 
 export const routes: Routes = [
   {
@@ -64,5 +65,11 @@ export const routes: Routes = [
     component: DirectorsComponent,
     canActivate: [authGuard, accessGuard],
     data: { accessRules: "usuarios.dashboard_direcao"}
+  },
+  {
+    path: 'gratificacao_produtividade',
+    component: ProductivityGratificationComponent,
+    canActivate: [authGuard, accessGuard],
+    data: { accessRules: "usuarios.dashboard_produtividade_gratificacao"}
   },
 ];

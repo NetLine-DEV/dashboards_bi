@@ -5,6 +5,9 @@
   </div>
   <nav>
     <ul>
+      <li *ngIf="permissions.includes('usuarios.dashboard_produtividade_gratificacao')">
+        <a href="/gratificacao_produtividade"><i class="bi bi-currency-dollar"></i><span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Dashboard bonificação técnicos</span></a>
+      </li>
       <li *ngIf="permissions.includes('usuarios.dashboard_contas_receber')">
         <a href="/contas_a_receber"><i class="bi bi-piggy-bank-fill"></i><span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Dashboard de Contas a receber</span></a>
       </li>
