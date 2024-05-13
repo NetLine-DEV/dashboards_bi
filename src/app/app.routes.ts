@@ -11,6 +11,7 @@ import { DirectorsComponent } from './components/pages/directors/directors.compo
 import { BillingComponent } from './components/pages/billing/billing.component';
 import { accessGuard } from './guards/access.guard';
 import { ProductivityGratificationComponent } from './components/pages/productivity-gratification/productivity-gratification.component';
+import { AuditComponent } from './components/pages/audit/audit.component';
 
 export const routes: Routes = [
   {
@@ -71,5 +72,11 @@ export const routes: Routes = [
     component: ProductivityGratificationComponent,
     canActivate: [authGuard, accessGuard],
     data: { accessRules: "usuarios.dashboard_produtividade_gratificacao"}
+  },
+  {
+    path: 'auditoria',
+    component: AuditComponent,
+    canActivate: [authGuard, accessGuard],
+    data: { accessRules: "usuarios.dashboard_auditoria"}
   },
 ];
