@@ -5,6 +5,7 @@ import { LoginComponent } from './components/pages/login/login.component';
 import { LoginService } from './services/login/login.service';
 import { CommonModule, NgIf } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -20,5 +21,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit(): void {
     this.authService.sideMenu.subscribe(status => this.showSideBar = status);
+
+    interval(3600000).subscribe(() => location.reload());
   }
 }
