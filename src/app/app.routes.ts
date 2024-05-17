@@ -12,6 +12,7 @@ import { BillingComponent } from './components/pages/billing/billing.component';
 import { accessGuard } from './guards/access.guard';
 import { ProductivityGratificationComponent } from './components/pages/productivity-gratification/productivity-gratification.component';
 import { AuditComponent } from './components/pages/audit/audit.component';
+import { TvCommercialComponent } from './components/pages/tv-commercial/tv-commercial.component';
 
 export const routes: Routes = [
   {
@@ -78,5 +79,11 @@ export const routes: Routes = [
     component: AuditComponent,
     canActivate: [authGuard, accessGuard],
     data: { accessRules: "usuarios.dashboard_auditoria"}
+  },
+  {
+    path: 'evolucao_meta',
+    component: TvCommercialComponent,
+    canActivate: [authGuard, accessGuard],
+    data: { accessRules: "usuarios.dashboard_tv_meta"}
   },
 ];
