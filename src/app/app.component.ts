@@ -22,6 +22,6 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
     this.authService.sideMenu.subscribe(status => this.showSideBar = status);
 
-    interval(3600000).subscribe(() => location.reload());
+    interval(1800000).subscribe(() => location.reload());
   }
 }
