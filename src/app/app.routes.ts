@@ -85,12 +85,12 @@ export const routes: Routes = [
     path: 'evolucao_meta',
     component: TvCommercialComponent,
     canActivate: [authGuard, accessGuard],
-    data: { accessRules: "usuarios.dashboard_tv_meta"}
+    data: { accessRules: "usuarios.dashboard_tv"}
   },
   {
     path: 'relatorio_ordens_servico',
     component: OsComponent,
     canActivate: [authGuard, accessGuard],
-    data: { accessRules: "usuarios.dashboard_tv_ordens_servico"}
+    data: { accessRules: "usuarios.dashboard_tv"}
   },
 ];
