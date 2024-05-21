@@ -13,6 +13,7 @@ import { accessGuard } from './guards/access.guard';
 import { ProductivityGratificationComponent } from './components/pages/productivity-gratification/productivity-gratification.component';
 import { AuditComponent } from './components/pages/audit/audit.component';
 import { TvCommercialComponent } from './components/pages/tv-commercial/tv-commercial.component';
+import { OsComponent } from './components/pages/os/os.component';
 
 export const routes: Routes = [
   {
@@ -83,7 +84,13 @@ export const routes: Routes = [
   {
     path: 'evolucao_meta',
     component: TvCommercialComponent,
-    canActivate: [accessGuard],
+    canActivate: [authGuard, accessGuard],
     data: { accessRules: "usuarios.dashboard_tv_meta"}
+  },
+  {
+    path: 'relatorio_ordens_servico',
+    component: OsComponent,
+    canActivate: [authGuard, accessGuard],
+    data: { accessRules: "usuarios.dashboard_tv_ordens_servico"}
   },
 ];

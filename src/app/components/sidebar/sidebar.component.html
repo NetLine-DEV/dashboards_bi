@@ -32,8 +32,11 @@
       <li *ngIf="permissions.includes('usuarios.dashboard_direcao')">
         <a href="/direcao"><i class="bi bi-kanban-fill"></i><span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Dashboard direção</span></a>
       </li>
-      <li *ngIf="permissions.includes('usuarios.dashboard_tv_meta')">
+      <li *ngIf="permissions.includes('usuarios.dashboard_tv')">
         <a href="/evolucao_meta"><i class="bi bi-tv"></i><span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Dashboard de Evolução de meta</span></a>
+      </li>
+      <li *ngIf="permissions.includes('usuarios.dashboard_tv')">
+        <a href="/relatorio_ordens_servico"><i class="bi bi-chat-text-fill"></i><span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Dashboard de Ordens de Serviço</span></a>
       </li>
     </ul>
   </nav>
