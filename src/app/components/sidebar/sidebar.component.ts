@@ -11,7 +11,7 @@ import { LoginService } from '../../services/login/login.service';
   styleUrl: './sidebar.component.scss'
 })
 export class SidebarComponent { 
-  statusSideBar: boolean = false;
+  statusSideBar: boolean = true;
   authService = inject(LoginService);
   permissions = this.authService.decodedToken();
 
