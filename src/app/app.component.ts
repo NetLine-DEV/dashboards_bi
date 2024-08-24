@@ -6,6 +6,7 @@ import { LoginService } from './services/login/login.service';
 import { CommonModule, NgIf } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { interval } from 'rxjs';
+import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,7 @@ export class AppComponent implements OnInit{
   showSideBar: boolean = false;
 
   ngOnInit(): void {
+    initFlowbite();
     this.authService.sideMenu.subscribe(status => this.showSideBar = status);
 
     interval(1800000).subscribe(() => location.reload());

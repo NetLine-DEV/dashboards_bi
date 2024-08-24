@@ -14,6 +14,7 @@ import { ProductivityGratificationComponent } from './components/pages/productiv
 import { AuditComponent } from './components/pages/audit/audit.component';
 import { TvCommercialComponent } from './components/pages/tv-commercial/tv-commercial.component';
 import { OsComponent } from './components/pages/os/os.component';
+import { RhComponent } from './components/pages/rh/rh.component';
 
 export const routes: Routes = [
   {
@@ -93,4 +94,11 @@ export const routes: Routes = [
     canActivate: [authGuard, accessGuard],
     data: { accessRules: "usuarios.dashboard_tv"}
   },
+  {
+    path: 'relatorio_rh',
+    component: RhComponent,
+    canActivate: [authGuard, accessGuard],
+    data: { accessRules: "usuarios.dashboard_rh"}
+  },
+  
 ];

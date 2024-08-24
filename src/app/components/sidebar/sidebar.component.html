@@ -38,6 +38,9 @@
       <li *ngIf="permissions.includes('usuarios.dashboard_tv')">
         <a href="/relatorio_ordens_servico"><i class="bi bi-chat-text-fill"></i><span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Dashboard de Ordens de Serviço</span></a>
       </li>
+      <li *ngIf="permissions.includes('usuarios.dashboard_rh')">
+        <a href="/relatorio_rh"><i class="bi bi-clock-history"></i><span [ngClass]="statusSideBar ? 'invisible' : 'visible'">Dashboard RH</span></a>
+      </li>
     </ul>
   </nav>
   <div class="options">
