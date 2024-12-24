@@ -14,6 +14,7 @@
   font-family: "Poppins", sans-serif;
   transition: all 0.2s ease-in-out;
 }
+
 .sidebar-menu .logo {
   width: 100%;
   display: flex;
@@ -22,9 +23,11 @@
   gap: 1rem;
   transition: all 0.2s ease-in-out;
 }
+
 .sidebar-menu .logo img {
   max-width: 170px;
 }
+
 .sidebar-menu ul {
   display: flex;
   align-items: start;
@@ -32,13 +35,16 @@
   flex-direction: column;
   gap: 0.5rem;
 }
+
 .sidebar-menu ul li {
   cursor: pointer;
   list-style: none;
 }
+
 .sidebar-menu ul li .dropdown_menu a {
   color: #000000;
 }
+
 .sidebar-menu ul li a {
   display: flex;
   align-items: center;
@@ -46,6 +52,7 @@
   text-decoration: none;
   color: #FFFFFF;
 }
+
 .sidebar-menu .options {
   width: 100%;
   display: flex;
@@ -53,6 +60,7 @@
   align-items: center;
   gap: 1rem;
 }
+
 .sidebar-menu .options .logout {
   display: flex;
   align-items: center;
@@ -69,13 +77,16 @@
   background-color: #FFFFFF;
   transition: all 0.2s ease-in-out;
 }
+
 .sidebar-menu .options .logout i {
   height: -moz-min-content;
   height: min-content;
 }
+
 .sidebar-menu .options .logout_reduced {
   width: 50px;
 }
+
 .sidebar-menu .options button {
   font-size: 20px;
   width: 48px;

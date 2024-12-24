@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { IframeComponent } from '../../iframe/iframe.component';
 
 @Component({
   selector: 'app-audit',
   standalone: true,
-  imports: [],
+  imports: [IframeComponent],
   templateUrl: './audit.component.html',
   styleUrl: './audit.component.scss'
 })

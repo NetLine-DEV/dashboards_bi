@@ -15,6 +15,11 @@ import { AuditComponent } from './components/pages/audit/audit.component';
 import { TvCommercialComponent } from './components/pages/tv-commercial/tv-commercial.component';
 import { OsComponent } from './components/pages/os/os.component';
 import { RhComponent } from './components/pages/rh/rh.component';
+import { LeadsComponent } from './components/pages/leads/leads.component';
+import { ItaporangaComponent } from './components/pages/itaporanga/itaporanga.component';
+import { FleetComponent } from './components/pages/fleet/fleet.component';
+import { MarketingComponent } from './components/pages/marketing/marketing.component';
+import { RankingComponent } from './components/pages/ranking/ranking.component';
 
 export const routes: Routes = [
   {
@@ -100,5 +105,28 @@ export const routes: Routes = [
     canActivate: [authGuard, accessGuard],
     data: { accessRules: "usuarios.dashboard_rh"}
   },
-  
+  {
+    path: 'relatorio_leads',
+    component: LeadsComponent,
+    canActivate: [authGuard, accessGuard],
+    data: { accessRules: "usuarios.dashboard_leads"}
+  },
+  {
+    path: 'relatorio_itaporanga',
+    component: ItaporangaComponent,
+    canActivate: [authGuard, accessGuard],
+    data: { accessRules: "usuarios.dashboard_itaporanga"}
+  },
+  {
+    path: 'relatorio_frota',
+    component: FleetComponent,
+    canActivate: [authGuard, accessGuard],
+    data: { accessRules: "usuarios.dashboard_frota"}
+  },
+  {
+    path: 'marketing',
+    component: MarketingComponent,
+    canActivate: [authGuard, accessGuard],
+    data: { accessRules: "usuarios.dashboard_marketing"}
+  }
 ];
