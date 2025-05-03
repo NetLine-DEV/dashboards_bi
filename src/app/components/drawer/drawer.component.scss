@@ -1,0 +1,56 @@
+@import '../../styles/_variables';
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  cursor: pointer;
+  list-style: none;
+
+  .dropdown_menu {
+    a {
+      color: $black-color;
+      text-decoration: none;
+    }
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: $white-color;
+    text-decoration: none;
+
+    :hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.reduced {
+  padding: 2rem 0;
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.complete {
+  width: 300px
+}
+
+.visibile {
+  display: none;
+}
+
+.invisible {
+  display: none;
+}
+
+.active-link {
+  i {
+    color: $green-btn;
+  }
+}

@@ -1,4 +1,4 @@
-export interface IMenuItemDrawer {
+export interface iMenuItemDrawer {
   textMenu: string;
   routeActive: string;
   permission: string;

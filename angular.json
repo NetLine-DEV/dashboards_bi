@@ -32,11 +32,15 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/bootstrap-icons/font/bootstrap-icons.scss",
+              "node_modules/flowbite/dist/flowbite.css",
+              "node_modules/ngx-toastr/toastr.css",
               "src/styles.scss"
             ],
             "scripts": [
+              "node_modules/flowbite/dist/flowbite.min.js",
               "node_modules/@popperjs/core/dist/umd/popper-base.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.js"
+              "node_modules/bootstrap/dist/js/bootstrap.js",
+              "node_modules/flowbite/dist/flowbite.js"
             ]
           },
           "configurations": {

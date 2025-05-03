@@ -20,6 +20,11 @@ import { ItaporangaComponent } from './components/pages/itaporanga/itaporanga.co
 import { FleetComponent } from './components/pages/fleet/fleet.component';
 import { MarketingComponent } from './components/pages/marketing/marketing.component';
 import { RankingComponent } from './components/pages/ranking/ranking.component';
+import { CgrComponent } from './components/pages/cgr/cgr.component';
+import { TvStructureComponent } from './components/pages/tv-structure/tv-structure.component';
+import { TvInstallationComponent } from './components/pages/tv-installation/tv-installation.component';
+import { TreasuryComponent } from './components/pages/treasury/treasury.component';
+import { AccountPayableComponent } from './components/pages/account-payable/account-payable.component';
 
 export const routes: Routes = [
   {
@@ -36,6 +41,18 @@ export const routes: Routes = [
     component: BillsToReceiveComponent,
     canActivate: [authGuard, accessGuard],
     data: { accessRules: "usuarios.dashboard_contas_receber"}
+  },
+  {
+    path: 'contas_a_pagar',
+    component: AccountPayableComponent,
+    canActivate: [authGuard, accessGuard],
+    data: { accessRules: "usuarios.dashboard_contas_pagar"}
+  },
+  {
+    path: 'tesouraria',
+    component: TreasuryComponent,
+    canActivate: [authGuard, accessGuard],
+    data: { accessRules: "usuarios.dashboard_tesouraria"}
   },
   {
     path: 'estrutura',
@@ -61,7 +78,6 @@ export const routes: Routes = [
     component: InstallationComponent,
     canActivate: [authGuard, accessGuard],
     data: { accessRules: "usuarios.dashboard_instalacao_suporte"}
-
   },
   {
     path: 'vendas',
@@ -80,6 +96,18 @@ export const routes: Routes = [
     component: ProductivityGratificationComponent,
     canActivate: [authGuard, accessGuard],
     data: { accessRules: "usuarios.dashboard_produtividade_gratificacao"}
+  },
+  {
+    path: 'gratificacao_produtividade_estrutura',
+    component: TvStructureComponent,
+    canActivate: [authGuard, accessGuard],
+    data: { accessRules: "usuarios.dashboard_estrutura"}
+  },
+  {
+    path: 'gratificacao_produtividade_instalacao',
+    component: TvInstallationComponent,
+    canActivate: [authGuard, accessGuard],
+    data: { accessRules: "usuarios.dashboard_instalacao_suporte"}
   },
   {
     path: 'auditoria',
@@ -128,5 +156,11 @@ export const routes: Routes = [
     component: MarketingComponent,
     canActivate: [authGuard, accessGuard],
     data: { accessRules: "usuarios.dashboard_marketing"}
-  }
+  },
+  {
+    path: 'relatorio_cgr',
+    component: CgrComponent,
+    canActivate: [authGuard, accessGuard],
+    data: { accessRules: "usuarios.dashboard_cgr"}
+  },
 ];

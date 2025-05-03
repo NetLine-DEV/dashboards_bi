@@ -3,6 +3,7 @@ import { EventEmitter, Injectable, OnInit, inject } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +14,13 @@ export class LoginService {
 
   sideMenu = new EventEmitter<boolean>();
   errorLogin = new EventEmitter<boolean>();
-  router = inject(Router)
+  router = inject(Router);
   http = inject(HttpClient);
+  toast = inject(ToastrService);
 
   login(userLogin: FormBuilder) {
     try {
-      return this.http.post<FormBuilder>('http://relatorios.netlinetelecom.com.br:60012/login/', userLogin).subscribe(
+      return this.http.post<FormBuilder>('https://leadsintegration.netlinetelecom.com.br:60061/api/proxy-login/', userLogin).subscribe(
         (res) => {
           const stringToken = JSON.stringify(res);
           const removeTenInitial = stringToken.substring(10);
@@ -26,8 +28,12 @@ export class LoginService {
           this.token = removeTwoFinal;
           window.localStorage.setItem("token", this.token);
           this.router.navigate(['/']);
+          this.toast.success('Login realizado com sucesso!');
         },
-        (err) => this.errorLogin.emit(true)
+        (err) => {
+          this.toast.error('Falha no login!');
+          return this.errorLogin.emit(true);
+        }
       );
     } catch (error) {
       console.error(error);
@@ -59,10 +65,15 @@ export class LoginService {
   }
 
   decodedToken() {
-    const decoded = jwtDecode(window.localStorage.getItem('token')!);
-    const tokenJSON = JSON.stringify(decoded);
-    const tokenObject = JSON.parse(tokenJSON);
+    const token = window.localStorage.getItem('token');
+    if (!token) return null;
 
-    return tokenObject.permissoes;
+    try {
+      const decoded = jwtDecode<any>(token);
+      return decoded;
+    } catch (error) {
+      console.error("Erro ao decodificar o token:", error);
+      return null;
+    }
   }
 }

@@ -8,7 +8,8 @@ export const accessGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
 
   const access = route.data['accessRules'];
-  const permissions = authService.decodedToken();
+  const data_user = authService.decodedToken()
+  const permissions = data_user.permissoes;
 
   if (permissions.includes(access)) {
     return true;

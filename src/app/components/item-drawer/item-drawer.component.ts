@@ -15,5 +15,5 @@ export class ItemDrawerComponent {
   @Input() textMenu: string = "";
   @Input() statusSideBar: boolean = false;
   @Input() icon: string = "";
-  @Input() isActive: boolean = false; 
+  @Input() isActive: boolean = false;
 }
