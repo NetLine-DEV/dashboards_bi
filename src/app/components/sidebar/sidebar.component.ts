@@ -23,7 +23,7 @@ export class SidebarComponent implements OnInit, AfterViewInit {
   readonly SquareKanban = SquareKanban;
   readonly TvMinimal = TvMinimal;
   readonly SquareArrowOutUpLeft = SquareArrowOutUpLeft;
-  statusSideBar: boolean = false;
+  statusSideBar: boolean = true;
   authService = inject(LoginService);
   router = inject(Router);
   data_user = this.authService.decodedToken();
