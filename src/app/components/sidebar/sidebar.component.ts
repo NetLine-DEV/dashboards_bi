@@ -78,6 +78,20 @@ export class SidebarComponent implements OnInit, AfterViewInit {
   ];
 
   toggleSideBar() {
+    if (!this.statusSideBar) {
+      const dropdowns = document.querySelectorAll('[aria-expanded="true"]');
+      dropdowns.forEach((dropdown) => {
+        dropdown.setAttribute('aria-expanded', 'false');
+        const dropdownId = dropdown.getAttribute('aria-controls');
+        if (dropdownId) {
+          const dropdownElement = document.getElementById(dropdownId);
+          if (dropdownElement) {
+            dropdownElement.classList.add('hidden');
+          }
+        }
+      });
+    }
+
     this.statusSideBar = !this.statusSideBar;
   }
 
@@ -95,5 +109,24 @@ export class SidebarComponent implements OnInit, AfterViewInit {
 
   hasAnyPermission(rules: string[]): boolean {
     return rules.some(permission => this.hasPermission(permission));
+  }
+
+  checkMenuState(menuButton: HTMLElement): void {
+    let isExpanded = menuButton.getAttribute('aria-expanded');
+
+    if (isExpanded === null) {
+      isExpanded = 'false';
+      menuButton.setAttribute('aria-expanded', isExpanded);
+    }
+
+    const expanded = isExpanded === 'false';
+
+    if (!expanded) {
+      return;
+    } else {
+      this.statusSideBar = false;
+    }
+
+    menuButton.setAttribute('aria-expanded', (!expanded).toString());
   }
 }

@@ -15,7 +15,7 @@
     <ul class="flex-1 flex flex-col items-start justify-center space-y-2 font-medium text-white" [ngClass]="statusSideBar ? 'reduced' : 'complete'">
       <!-- Bonificação -->
       <li>
-        <button type="button" class="flex items-center w-full p-2 gap-4 text-base transition duration-75 rounded-lg group" aria-controls="dropdown-bonificacao" data-collapse-toggle="dropdown-bonificacao">
+        <button #menuButtonBonificacao (click)="checkMenuState(menuButtonBonificacao)" type="button" class="flex items-center w-full p-2 gap-4 text-base transition duration-75 rounded-lg group" aria-controls="dropdown-bonificacao" data-collapse-toggle="dropdown-bonificacao">
           <i-lucide [img]="CircleDollarSign"></i-lucide>
           @if (!statusSideBar) {
             <span class="flex-1 text-left rtl:text-right whitespace-nowrap">Bonificação</span>
@@ -49,7 +49,7 @@
 
       <!-- Gestão -->
       <li>
-        <button type="button" class="flex items-center w-full p-2 gap-4 text-base transition duration-75 rounded-lg group" aria-controls="dropdown-gestao" data-collapse-toggle="dropdown-gestao">
+        <button #menuButtonGestao (click)="checkMenuState(menuButtonGestao)" type="button" class="flex items-center w-full p-2 gap-4 text-base transition duration-75 rounded-lg group" aria-controls="dropdown-gestao" data-collapse-toggle="dropdown-gestao">
           <i-lucide [img]="SquareKanban"></i-lucide>
           @if (!statusSideBar) {
             <span class="flex-1 text-left rtl:text-right whitespace-nowrap">Gestão</span>
@@ -173,7 +173,7 @@
       <!-- TV -->
       @if (hasPermission('usuarios.dashboard_tv')) {
         <li>
-          <button type="button" class="flex items-center w-full p-2 gap-4 text-base transition duration-75 rounded-lg group" aria-controls="dropdown-tv" data-collapse-toggle="dropdown-tv">
+          <button #menuButtonTv (click)="checkMenuState(menuButtonTv)" type="button" class="flex items-center w-full p-2 gap-4 text-base transition duration-75 rounded-lg group" aria-controls="dropdown-tv" data-collapse-toggle="dropdown-tv">
             <i-lucide [img]="TvMinimal"></i-lucide>
             @if (!statusSideBar) {
               <span class="flex-1 text-left rtl:text-right whitespace-nowrap">TV</span>
