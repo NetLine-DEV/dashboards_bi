@@ -14,40 +14,43 @@
     </div>
     <ul class="flex-1 flex flex-col items-start justify-center space-y-2 font-medium text-white" [ngClass]="statusSideBar ? 'reduced' : 'complete'">
       <!-- Bonificação -->
-      <li>
-        <button #menuButtonBonificacao (click)="checkMenuState(menuButtonBonificacao)" type="button" class="flex items-center w-full p-2 gap-4 text-base transition duration-75 rounded-lg group" aria-controls="dropdown-bonificacao" data-collapse-toggle="dropdown-bonificacao">
-          <i-lucide [img]="CircleDollarSign"></i-lucide>
-          @if (!statusSideBar) {
-            <span class="flex-1 text-left rtl:text-right whitespace-nowrap">Bonificação</span>
-          }
+      @if (hasAnyPermission(permissoesBonificacao)) {
+        <li>
+          <button #menuButtonBonificacao (click)="checkMenuState(menuButtonBonificacao)" type="button" class="flex items-center w-full p-2 gap-4 text-base transition duration-75 rounded-lg group" aria-controls="dropdown-bonificacao" data-collapse-toggle="dropdown-bonificacao">
+            <i-lucide [img]="CircleDollarSign"></i-lucide>
+            @if (!statusSideBar) {
+              <span class="flex-1 text-left rtl:text-right whitespace-nowrap">Bonificação</span>
+            }
 
-          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-          </svg>
-        </button>
-        <ul id="dropdown-bonificacao" class="hidden py-2 space-y-2">
-          @if (hasPermission('usuarios.dashboard_produtividade_gratificacao')) {
-            <li>
-              <a href="/gratificacao_produtividade" class="flex text-white no-underline items-center w-full p-2">Técnicos</a>
-            </li>
-          }
+            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+            </svg>
+          </button>
+          <ul id="dropdown-bonificacao" class="hidden py-2 space-y-2">
+            @if (hasPermission('usuarios.dashboard_produtividade_gratificacao')) {
+              <li>
+                <a href="/gratificacao_produtividade" class="flex text-white no-underline items-center w-full p-2">Técnicos</a>
+              </li>
+            }
 
-          @if (hasPermission('usuarios.dashboard_estrutura')) {
-            <li>
-              <a href="/gratificacao_produtividade_estrutura" class="flex text-white no-underline items-center w-full p-2">Estrutura</a>
-            </li>
-          }
+            @if (hasPermission('usuarios.dashboard_estrutura')) {
+              <li>
+                <a href="/gratificacao_produtividade_estrutura" class="flex text-white no-underline items-center w-full p-2">Estrutura</a>
+              </li>
+            }
 
-          @if (hasPermission('usuarios.dashboard_instalacao_suporte')) {
-            <li>
-              <a href="/gratificacao_produtividade_instalacao" class="flex text-white no-underline items-center w-full p-2">Instalação</a>
-            </li>
-          }
-        </ul>
-      </li>
+            @if (hasPermission('usuarios.dashboard_instalacao_suporte')) {
+              <li>
+                <a href="/gratificacao_produtividade_instalacao" class="flex text-white no-underline items-center w-full p-2">Instalação</a>
+              </li>
+            }
+          </ul>
+        </li>
+      }
       <!-- Bonificação -->
 
       <!-- Gestão -->
+      @if(hasAnyPermission(permissoesGestao)) {
       <li>
         <button #menuButtonGestao (click)="checkMenuState(menuButtonGestao)" type="button" class="flex items-center w-full p-2 gap-4 text-base transition duration-75 rounded-lg group" aria-controls="dropdown-gestao" data-collapse-toggle="dropdown-gestao">
           <i-lucide [img]="SquareKanban"></i-lucide>
@@ -168,6 +171,7 @@
         }
         </ul>
       </li>
+      }
       <!-- Gestão -->
 
       <!-- TV -->
