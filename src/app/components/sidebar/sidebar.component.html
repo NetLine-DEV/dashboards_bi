@@ -122,17 +122,17 @@
             </li>
           }
 
-        @if(hasPermission('usuarios.dashboard_financeiro_service_desk')) {
-          <li>
-            <a href="/financeiro_service_desk" class="flex text-white no-underline items-center w-full p-2 hover:underline">Financeiro / Service desk</a>
-          </li>
-        }
+          @if(hasPermission('usuarios.dashboard_financeiro_service_desk')) {
+            <li>
+              <a href="/financeiro_service_desk" class="flex text-white no-underline items-center w-full p-2 hover:underline">Financeiro / Service desk</a>
+            </li>
+          }
 
-        @if(hasPermission('usuarios.dashboard_rh')) {
-          <li>
-            <a href="/relatorio_rh" class="flex text-white no-underline items-center w-full p-2 hover:underline">Recursos humanos</a>
-          </li>
-        }
+          @if(hasPermission('usuarios.dashboard_rh')) {
+            <li>
+              <a href="/relatorio_rh" class="flex text-white no-underline items-center w-full p-2 hover:underline">Recursos humanos</a>
+            </li>
+          }
 
         @if (hasAnyPermission([
           'usuarios.dashboard_contas_receber',

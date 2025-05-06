@@ -31,7 +31,7 @@ export class SidebarComponent implements OnInit, AfterViewInit {
 
   permissoesBonificacao: string [] = ['usuarios.dashboard_produtividade_gratificacao', 'usuarios.dashboard_estrutura', 'usuarios.dashboard_instalacao_suporte'];
 
-  permissoesGestao: string [] = ['usuarios.dashboard_auditoria', 'usuarios.dashboard_cgr', 'usuarios.dashboard_comercial', 'usuarios.dashboard_leads', 'usuarios.dashboard_marketing'];
+  permissoesGestao: string [] = ['usuarios.dashboard_auditoria', 'usuarios.dashboard_cgr', 'usuarios.dashboard_comercial', 'usuarios.dashboard_leads', 'usuarios.dashboard_marketing', 'usuarios.dashboard_contas_receber', 'usuarios.dashboard_contas_pagar', 'usuarios.dashboard_tesouraria', 'usuarios.dashboard_direcao', 'usuarios.dashboard_estrutura', 'usuarios.dashboard_financeiro_service_desk', 'usuarios.dashboard_rh'];
 
 
   ngOnInit(): void {
