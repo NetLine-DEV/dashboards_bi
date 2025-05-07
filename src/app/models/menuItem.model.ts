@@ -1,6 +1,6 @@
 export interface iMenuItemDrawer {
-  textMenu: string;
-  routeActive: string;
+  text: string;
+  route: string;
   permission: string;
-  icon: string;
+  icon?: string;
 }

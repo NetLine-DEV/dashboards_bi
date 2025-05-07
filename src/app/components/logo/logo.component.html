@@ -1,0 +1,4 @@
+<div class="relative logo mb-4">
+  <img *ngIf="!status" src="assets/logo.png" width="150" [ngClass]="status ? 'invisible' : 'visible'" class="transition-all duration-75">
+  <img *ngIf="status" src="assets/sublogo.png" width="48" height="48" class="absolute left-4" class="transition-all duration-75">
+</div>

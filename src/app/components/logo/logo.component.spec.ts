@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ItemDrawerComponent } from './item-drawer.component';
+import { LogoComponent } from './logo.component';
 
-describe('ItemDrawerComponent', () => {
-  let component: ItemDrawerComponent;
-  let fixture: ComponentFixture<ItemDrawerComponent>;
+describe('LogoComponent', () => {
+  let component: LogoComponent;
+  let fixture: ComponentFixture<LogoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ItemDrawerComponent]
+      imports: [LogoComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ItemDrawerComponent);
+    fixture = TestBed.createComponent(LogoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

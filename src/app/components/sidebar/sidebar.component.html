@@ -1,17 +1,6 @@
-
-<button data-drawer-target="sidebar-multi-level-sidebar" data-drawer-toggle="sidebar-multi-level-sidebar" aria-controls="sidebar-multi-level-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
-  <span class="sr-only">Open sidebar</span>
-  <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-  <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
-  </svg>
-</button>
-
 <aside id="sidebar-multi-level-sidebar" [ngClass]="statusSideBar ? 'reduced' : 'complete'" class="h-screen bg-[#000357]" aria-label="Sidebar">
   <div class="flex flex-col items-center justify-between h-full py-4 overflow-y-auto">
-    <div class="relative logo mb-4">
-      <img *ngIf="!statusSideBar" src="assets/logo.png" width="150" [ngClass]="statusSideBar ? 'invisible' : 'visible'" class="transition-all duration-75">
-      <img *ngIf="statusSideBar" src="assets/sublogo.png" width="48" height="48" class="absolute left-4" class="transition-all duration-75">
-    </div>
+    <app-logo [status]="statusSideBar"></app-logo>
     <ul class="flex-1 flex flex-col items-start justify-center space-y-2 font-medium text-white" [ngClass]="statusSideBar ? 'reduced' : 'complete'">
       <!-- Bonificação -->
       @if (hasAnyPermission(permissoesBonificacao)) {
@@ -26,26 +15,14 @@
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
             </svg>
           </button>
-          <ul id="dropdown-bonificacao" class="hidden py-2 space-y-2">
-            @if (hasPermission('usuarios.dashboard_produtividade_gratificacao')) {
-              <li>
-                <a href="/gratificacao_produtividade" class="flex text-white no-underline items-center w-full p-2">Técnicos</a>
-              </li>
-            }
 
-            @if (hasPermission('usuarios.dashboard_estrutura')) {
-              <li>
-                <a href="/gratificacao_produtividade_estrutura" class="flex text-white no-underline items-center w-full p-2">Estrutura</a>
-              </li>
-            }
+          <app-menus
+            [menus]="subMenusBonificacao"
+            [id]="'dropdown-bonificacao'"
+            [hasPermission]="hasPermission.bind(this)"
+          >
+          </app-menus>
 
-            @if (hasPermission('usuarios.dashboard_instalacao_suporte')) {
-              <li>
-                <a href="/gratificacao_produtividade_instalacao" class="flex text-white no-underline items-center w-full p-2">Instalação</a>
-              </li>
-            }
-          </ul>
-        </li>
       }
       <!-- Bonificação -->
 
@@ -62,119 +39,71 @@
           </svg>
         </button>
         <ul id="dropdown-gestao" class="hidden py-2 space-y-2">
-          @if (hasPermission('usuarios.dashboard_auditoria')) {
-            <li>
-              <a href="/auditoria" class="flex items-center p-2 text-white no-underline gap-2 hover:underline">Auditoria</a>
-            </li>
-          }
 
-          @if (hasPermission('usuarios.dashboard_cgr')) {
-            <li>
-              <a href="/relatorio_cgr" class="flex text-white no-underline items-center w-full p-2 hover:underline">CGR</a>
-            </li>
-          }
+          <app-submenus
+            [idBtn]="'comercialMarketingButton'"
+            [id]="'comercialMarketing'"
+            [textMenu]="'Comercial / Marketing'"
+            [permissions]="permissoesComercialMarketing"
+            [menus]="subMenuComercialMarketing"
+            [hasAnyPermission]="hasAnyPermission.bind(this)"
+            [hasPermission]="hasPermission.bind(this)"
+          ></app-submenus>
 
-          @if (hasAnyPermission([
-            'usuarios.dashboard_comercial',
-            'usuarios.dashboard_leads',
-            'usuarios.dashboard_marketing',
+          <app-submenus
+            [idBtn]="'tesouraria'"
+            [id]="'tesourariaDropdown'"
+            [textMenu]="'Tesouraria'"
+            [permissions]="permissoesTesouraria"
+            [menus]="subMenuTesouraria"
+            [hasAnyPermission]="hasAnyPermission.bind(this)"
+            [hasPermission]="hasPermission.bind(this)"
+          ></app-submenus>
+
+          <!-- @if (hasAnyPermission([
+          'usuarios.dashboard_contas_receber',
+          'usuarios.dashboard_contas_pagar',
+          'usuarios.dashboard_tesouraria',
           ])) {
             <li>
-              <button id="comercialMarketingButton" data-dropdown-toggle="comercialMarketing" data-dropdown-placement="right-start" type="button" class="flex items-center justify-between w-full p-2">
-                Comercial/Marketing
+              <button id="tesouraria" data-dropdown-toggle="tesourariaDropdown" data-dropdown-placement="right-start" type="button" class="flex items-center justify-between w-full p-2">
+                Tesouraria
                 <svg class="w-2.5 h-2.5 ms-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
                 </svg>
               </button>
-              <div id="comercialMarketing" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700">
-                  <ul class="py-2 text-sm w-full" aria-labelledby="comercialMarketingButton">
-                    @if(hasPermission('usuarios.dashboard_leads')) {
+              <div id="tesourariaDropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700">
+                  <ul class="py-2 text-sm w-full" aria-labelledby="tesourariaButton">
+                    @if(hasPermission('usuarios.dashboard_contas_receber')) {
                       <li>
-                        <a href="/relatorio_leads" class="text-black no-underline block p-2 hover:underline">Leads</a>
+                        <a href="/contas_a_receber" class="text-black no-underline block p-2 hover:underline">Contas a receber</a>
                       </li>
                     }
 
-                    @if(hasPermission('usuarios.dashboard_marketing')) {
+                    @if(hasPermission('usuarios.dashboard_contas_pagar')) {
                       <li>
-                        <a href="/marketing" class="text-black no-underline block p-2 hover:underline">Marketing</a>
+                        <a href="/contas_a_pagar" class="text-black no-underline block p-2 hover:underline">Contas a Pagar</a>
                       </li>
                     }
 
-                    @if(hasPermission('usuarios.dashboard_comercial')) {
+                    @if(hasPermission('usuarios.dashboard_tesouraria')) {
                       <li>
-                        <a href="/vendas" class="text-black no-underline block p-2 hover:underline">Vendas</a>
+                        <a href="/tesouraria" class="text-black no-underline block p-2 hover:underline">Tesouraria</a>
                       </li>
                     }
                   </ul>
               </div>
             </li>
+          } -->
+
+          @for (item of listMenuOptions; track $index) {
+            <app-menu-option
+            [text]="item.text"
+            [route]="item.route"
+            [hasPermission]="hasPermission.bind(this)"
+            [permission]="item.permission"
+            ></app-menu-option>
           }
-
-          @if(hasPermission('usuarios.dashboard_direcao')) {
-            <li>
-              <a href="/direcao" class="flex text-white no-underline items-center w-full p-2 hover:underline">Direção</a>
-            </li>
-          }
-
-          @if(hasPermission('usuarios.dashboard_estrutura')) {
-            <li>
-              <a href="/estrutura" class="flex text-white no-underline items-center w-full p-2 hover:underline">Estrutura</a>
-            </li>
-          }
-
-          @if(hasPermission('usuarios.dashboard_instalacao_suporte')) {
-            <li>
-              <a href="/instalacao_suporte" class="flex text-white no-underline items-center w-full p-2 hover:underline">Serviço e suporte</a>
-            </li>
-          }
-
-          @if(hasPermission('usuarios.dashboard_financeiro_service_desk')) {
-            <li>
-              <a href="/financeiro_service_desk" class="flex text-white no-underline items-center w-full p-2 hover:underline">Financeiro / Service desk</a>
-            </li>
-          }
-
-          @if(hasPermission('usuarios.dashboard_rh')) {
-            <li>
-              <a href="/relatorio_rh" class="flex text-white no-underline items-center w-full p-2 hover:underline">Recursos humanos</a>
-            </li>
-          }
-
-        @if (hasAnyPermission([
-          'usuarios.dashboard_contas_receber',
-          'usuarios.dashboard_contas_pagar',
-          'usuarios.dashboard_tesouraria',
-        ])) {
-          <li>
-            <button id="tesouraria" data-dropdown-toggle="tesourariaDropdown" data-dropdown-placement="right-start" type="button" class="flex items-center justify-between w-full p-2">
-              Tesouraria
-              <svg class="w-2.5 h-2.5 ms-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-              </svg>
-            </button>
-            <div id="tesourariaDropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700">
-                <ul class="py-2 text-sm w-full" aria-labelledby="tesourariaButton">
-                  @if(hasPermission('usuarios.dashboard_contas_receber')) {
-                    <li>
-                      <a href="/contas_a_receber" class="text-black no-underline block p-2 hover:underline">Contas a receber</a>
-                    </li>
-                  }
-
-                  @if(hasPermission('usuarios.dashboard_contas_pagar')) {
-                    <li>
-                      <a href="/contas_a_pagar" class="text-black no-underline block p-2 hover:underline">Contas a Pagar</a>
-                    </li>
-                  }
-
-                  @if(hasPermission('usuarios.dashboard_tesouraria')) {
-                    <li>
-                      <a href="/tesouraria" class="text-black no-underline block p-2 hover:underline">Tesouraria</a>
-                    </li>
-                  }
-                </ul>
-            </div>
-          </li>
-        }
         </ul>
       </li>
       }
@@ -193,24 +122,18 @@
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
             </svg>
           </button>
-          <ul id="dropdown-tv" class="hidden py-2 space-y-2">
-            <li>
-              <a href="/relatorio_ordens_servico" class="flex text-white no-underline items-center w-full p-2 hover:underline">OS</a>
-            </li>
-            <li>
-              <a href="/evolucao_meta" class="flex text-white no-underline items-center w-full p-2 hover:underline">Meta</a>
-            </li>
-          </ul>
+
+          <app-menus
+            [menus]="subMenusTV"
+            [id]="'dropdown-tv'"
+            [hasPermission]="hasPermission.bind(this)"
+          >
+          </app-menus>
         </li>
       }
       <!-- TV -->
     </ul>
-    <button (click)="logout()" class="flex items-center p-2 text-white mb-4 hover:underline">
-      <i-lucide [img]="SquareArrowOutUpLeft"></i-lucide>
-      @if (!statusSideBar) {
-        <span class="flex-1 ms-3 whitespace-nowrap">Sair</span>
-      }
-    </button>
+    <app-logout [status]="statusSideBar"></app-logout>
     <div class="contract-sidebar h-[35px] w-[35px] text-white bg-[#02ab10] flex items-center justify-center rounded-full cursor-pointer" (click)="toggleSideBar()">
       <div>
         <i class="bi bi-caret-left-fill" *ngIf="!statusSideBar"></i>

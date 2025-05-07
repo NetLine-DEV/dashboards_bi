@@ -1,0 +1,6 @@
+<button (click)="logout()" class="flex items-center p-2 text-white mb-4 hover:underline">
+  <i-lucide [img]="icon"></i-lucide>
+  @if (!status) {
+    <span class="flex-1 ms-3 whitespace-nowrap">Sair</span>
+  }
+</button>
