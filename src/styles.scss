@@ -19,6 +19,16 @@ a {
   text-decoration: none;
 }
 
+.container-route {
+  display: flex;
+  height: 100%;
+
+  iframe {
+    flex-grow: 1;
+  }
+}
+
+
 @mixin flex-center {
   display: flex;
   align-items: center;

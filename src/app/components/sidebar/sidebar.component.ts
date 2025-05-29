@@ -37,7 +37,7 @@ export class SidebarComponent implements OnInit, AfterViewInit {
   ];
 
   permissoesGestao: string [] = [
-    'usuarios.dashboard_auditoria', 'usuarios.dashboard_cgr', 'usuarios.dashboard_comercial', 'usuarios.dashboard_leads', 'usuarios.dashboard_marketing', 'usuarios.dashboard_contas_receber', 'usuarios.dashboard_contas_pagar', 'usuarios.dashboard_tesouraria', 'usuarios.dashboard_direcao', 'usuarios.dashboard_estrutura', 'usuarios.dashboard_financeiro_service_desk', 'usuarios.dashboard_rh', 'usuarios.dashboard_instalacao_suporte'
+    'usuarios.dashboard_auditoria', 'usuarios.dashboard_cgr', 'usuarios.dashboard_comercial', 'usuarios.dashboard_leads', 'usuarios.dashboard_marketing', 'usuarios.dashboard_contas_receber', 'usuarios.dashboard_contas_pagar', 'usuarios.dashboard_tesouraria', 'usuarios.dashboard_direcao', 'usuarios.dashboard_estrutura', 'usuarios.dashboard_financeiro_service_desk', 'usuarios.dashboard_rh', 'usuarios.dashboard_instalacao_suporte', 'usuarios.dashboard_itaporanga', 'usuarios.dashboard_frota'
   ];
 
   permissoesComercialMarketing: string [] = [
@@ -83,6 +83,10 @@ export class SidebarComponent implements OnInit, AfterViewInit {
     {text: 'Faturamento', route: '/faturamento', permission: 'usuarios.dashboard_faturamento'},
 
     {text: 'Financeiro / Service desk', route: '/financeiro_service_desk', permission: 'usuarios.dashboard_financeiro_service_desk'},
+
+    {text: 'Frota', route: '/relatorio_frota', permission: 'usuarios.dashboard_frota'},
+
+    {text: 'Itaporanga', route: '/relatorio_itaporanga', permission: 'usuarios.dashboard_itaporanga'},
 
     {text: 'Recursos humanos', route: '/relatorio_rh', permission: 'usuarios.dashboard_rh'},
 
