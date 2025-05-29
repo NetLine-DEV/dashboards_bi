@@ -1,0 +1,15 @@
+@import '../../../../styles.scss';
+
+.container {
+  height: 100%;
+  @include flex-center;
+}
+
+@media (max-width: 1300px) {
+  .container {
+    img {
+      max-width: 550px;
+      max-height: 550px;
+    }
+  } 
+}

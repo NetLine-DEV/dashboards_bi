@@ -1,0 +1,7 @@
+.container-route {
+  display: flex;
+  height: 100%;
+}
+.container-route iframe {
+  flex-grow: 1;
+}/*# sourceMappingURL=productivity-gratification.component.css.map */

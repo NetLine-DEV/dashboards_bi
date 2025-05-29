@@ -1,1 +1,55 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  background-origin: padding-box;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container-route {
+  display: flex;
+  height: 100%;
+
+  iframe {
+    flex-grow: 1;
+  }
+}
+
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+@import 'ngx-toastr/toastr';
+
+@media (max-width: 1920px) {
+  html,
+  body {
+    max-width: 1920px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 1366px) {
+  html,
+  body {
+    max-width: 1366px;
+    width: 100%;
+  }
+}

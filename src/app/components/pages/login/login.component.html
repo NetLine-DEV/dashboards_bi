@@ -1,0 +1,32 @@
+<div class="login-page">
+  <section class="form-login">
+    <img src="/assets/logo.png" alt="" width="280">
+    <form [formGroup]="form" (submit)="login()">
+      <div class="inputs user">
+        <label for="user">Usuário</label>
+        <div class="inputs-icon">
+          <input type="text" name="user" id="user" placeholder="Insira seu usuário" formControlName="user" class="text-black">
+          <div class="icon">
+            <i class="bi bi-person-fill"></i>
+          </div>
+        </div>
+      </div>
+      <div class="inputs password">
+        <label for="password">Senha</label>
+          <div class="inputs-icon">
+            <input type="password" name="password" id="password" placeholder="Insira sua senha" formControlName="password" class="text-black">
+            <div class="icon">
+              <i class="bi bi-person-fill-lock"></i>
+            </div>
+          </div>
+      </div>
+      <button type="submit">
+        Entrar
+      </button>
+      <small *ngIf="errorLogin" class="error">Usuário e/ou senha incorretos!</small>
+    </form>
+  </section>
+  <section class="left-section">
+    <img src="/assets/sublogo.png" alt="Logo da empresa Netlin, logo verde com um N no centro">
+  </section>
+</div>

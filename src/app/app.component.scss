@@ -1,0 +1,9 @@
+.app-container {
+  height: 100%;
+  display: flex;
+  font-family: "Poppins", sans-serif;
+
+  .routes {
+    flex-grow: 1;
+  }
+}

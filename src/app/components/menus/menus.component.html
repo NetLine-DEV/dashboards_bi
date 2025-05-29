@@ -1,0 +1,9 @@
+<ul [id]="id" class="hidden py-2 space-y-2">
+  @for (item of menus; track $index) {
+    @if (hasPermission(item.permission)) {
+      <li>
+        <a [href]="item.route" class="flex text-white no-underline items-center w-full p-2 hover:underline">{{item.text}}</a>
+      </li>
+    }
+  }
+</ul>
