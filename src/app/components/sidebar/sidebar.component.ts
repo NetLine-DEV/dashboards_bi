@@ -37,7 +37,7 @@ export class SidebarComponent implements OnInit, AfterViewInit {
   ];
 
   permissoesGestao: string [] = [
-    'usuarios.dashboard_auditoria', 'usuarios.dashboard_cgr', 'usuarios.dashboard_comercial', 'usuarios.dashboard_leads', 'usuarios.dashboard_marketing', 'usuarios.dashboard_contas_receber', 'usuarios.dashboard_contas_pagar', 'usuarios.dashboard_tesouraria', 'usuarios.dashboard_direcao', 'usuarios.dashboard_estrutura', 'usuarios.dashboard_financeiro_service_desk', 'usuarios.dashboard_rh', 'usuarios.dashboard_instalacao_suporte', 'usuarios.dashboard_itaporanga', 'usuarios.dashboard_frota'
+    'usuarios.dashboard_auditoria', 'usuarios.dashboard_cgr', 'usuarios.dashboard_comercial', 'usuarios.dashboard_leads', 'usuarios.dashboard_marketing', 'usuarios.dashboard_contas_receber', 'usuarios.dashboard_contas_pagar', 'usuarios.dashboard_tesouraria', 'usuarios.dashboard_direcao', 'usuarios.dashboard_estrutura', 'usuarios.dashboard_financeiro_service_desk', 'usuarios.dashboard_rh', 'usuarios.dashboard_instalacao_suporte', 'usuarios.dashboard_itaporanga', 'usuarios.dashboard_frota', 'usuarios.dashboard_migracao_uirauna'
   ];
 
   permissoesComercialMarketing: string [] = [
@@ -91,6 +91,8 @@ export class SidebarComponent implements OnInit, AfterViewInit {
     {text: 'Recursos humanos', route: '/relatorio_rh', permission: 'usuarios.dashboard_rh'},
 
     {text: 'Serviço e suporte', route: '/instalacao_suporte', permission: 'usuarios.dashboard_instalacao_suporte'},
+
+    {text: 'Migração Uiraúna', route: '/migracao_uirauna', permission: 'usuarios.dashboard_migracao_uirauna'}
   ];
 
   ngOnInit(): void {
