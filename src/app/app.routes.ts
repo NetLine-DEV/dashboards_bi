@@ -26,6 +26,7 @@ import { TvInstallationComponent } from './components/pages/tv-installation/tv-i
 import { TreasuryComponent } from './components/pages/treasury/treasury.component';
 import { AccountPayableComponent } from './components/pages/account-payable/account-payable.component';
 import { UiraunaComponent } from './components/pages/uirauna/uirauna.component';
+import { OrganogramaComponent } from './components/pages/organograma/organograma.component';
 
 export const routes: Routes = [
   {
@@ -168,5 +169,11 @@ export const routes: Routes = [
     component: UiraunaComponent,
     canActivate: [authGuard, accessGuard],
     data: { accessRules: 'usuarios.dashboard_migracao_uirauna' },
+  },
+  {
+    path: 'organograma',
+    component: OrganogramaComponent,
+    canActivate: [authGuard, accessGuard],
+    data: { accessRules: 'usuarios.dashboard_direcao' },
   },
 ];
