@@ -1,45 +1,97 @@
-<aside id="sidebar-multi-level-sidebar" [ngClass]="statusSideBar ? 'reduced' : 'complete'" class="h-screen bg-[#000357]" aria-label="Sidebar">
-  <div class="flex flex-col items-center justify-between h-full py-4 overflow-y-auto">
+<aside
+  id="sidebar-multi-level-sidebar"
+  [ngClass]="statusSideBar ? 'reduced' : 'complete'"
+  class="h-screen bg-[#000357]"
+  aria-label="Sidebar"
+>
+  <div
+    class="flex flex-col items-center justify-between h-full py-4 overflow-y-auto"
+  >
     <app-logo [status]="statusSideBar"></app-logo>
-    <ul class="flex-1 flex flex-col items-start justify-center space-y-2 font-medium text-white" [ngClass]="statusSideBar ? 'reduced' : 'complete'">
+    <ul
+      class="flex-1 flex flex-col items-start justify-center space-y-2 font-medium text-white"
+      [ngClass]="statusSideBar ? 'reduced' : 'complete'"
+    >
       <!-- Bonificação -->
       @if (hasAnyPermission(permissoesBonificacao)) {
-        <li>
-          <button #menuButtonBonificacao (click)="checkMenuState(menuButtonBonificacao)" type="button" class="flex items-center w-full p-2 gap-4 text-base transition duration-75 rounded-lg group" aria-controls="dropdown-bonificacao" data-collapse-toggle="dropdown-bonificacao">
-            <i-lucide [img]="CircleDollarSign"></i-lucide>
-            @if (!statusSideBar) {
-              <span class="flex-1 text-left rtl:text-right whitespace-nowrap">Bonificação</span>
-            }
-
-            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-            </svg>
-          </button>
-
-          <app-menus
-            [menus]="subMenusBonificacao"
-            [id]="'dropdown-bonificacao'"
-            [hasPermission]="hasPermission.bind(this)"
+      <li>
+        <button
+          #menuButtonBonificacao
+          (click)="checkMenuState(menuButtonBonificacao)"
+          type="button"
+          class="flex items-center w-full p-2 gap-4 text-base transition duration-75 rounded-lg group"
+          aria-controls="dropdown-bonificacao"
+          data-collapse-toggle="dropdown-bonificacao"
+        >
+          <i-lucide [img]="CircleDollarSign"></i-lucide>
+          @if (!statusSideBar) {
+          <span class="flex-1 text-left rtl:text-right whitespace-nowrap"
+            >Bonificação</span
           >
-          </app-menus>
+          }
 
+          <svg
+            class="w-3 h-3"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 10 6"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m1 1 4 4 4-4"
+            />
+          </svg>
+        </button>
+
+        <app-menus
+          [menus]="subMenusBonificacao"
+          [id]="'dropdown-bonificacao'"
+          [hasPermission]="hasPermission.bind(this)"
+        >
+        </app-menus>
+      </li>
       }
       <!-- Bonificação -->
 
       <!-- Gestão -->
       @if(hasAnyPermission(permissoesGestao)) {
+
       <li>
-        <button #menuButtonGestao (click)="checkMenuState(menuButtonGestao)" type="button" class="flex items-center w-full p-2 gap-4 text-base transition duration-75 rounded-lg group" aria-controls="dropdown-gestao" data-collapse-toggle="dropdown-gestao">
+        <button
+          #menuButtonGestao
+          (click)="checkMenuState(menuButtonGestao)"
+          type="button"
+          class="flex items-center w-full p-2 gap-4 text-base transition duration-75 rounded-lg group"
+          aria-controls="dropdown-gestao"
+          data-collapse-toggle="dropdown-gestao"
+        >
           <i-lucide [img]="SquareKanban"></i-lucide>
           @if (!statusSideBar) {
-            <span class="flex-1 text-left rtl:text-right whitespace-nowrap">Gestão</span>
+          <span class="flex-1 text-left rtl:text-right whitespace-nowrap"
+            >Gestão</span
+          >
           }
-          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+          <svg
+            class="w-3 h-3"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 10 6"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m1 1 4 4 4-4"
+            />
           </svg>
         </button>
         <ul id="dropdown-gestao" class="hidden py-2 space-y-2">
-
           <app-submenus
             [idBtn]="'comercialMarketingButton'"
             [id]="'comercialMarketing'"
@@ -60,49 +112,13 @@
             [hasPermission]="hasPermission.bind(this)"
           ></app-submenus>
 
-          <!-- @if (hasAnyPermission([
-          'usuarios.dashboard_contas_receber',
-          'usuarios.dashboard_contas_pagar',
-          'usuarios.dashboard_tesouraria',
-          ])) {
-            <li>
-              <button id="tesouraria" data-dropdown-toggle="tesourariaDropdown" data-dropdown-placement="right-start" type="button" class="flex items-center justify-between w-full p-2">
-                Tesouraria
-                <svg class="w-2.5 h-2.5 ms-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                </svg>
-              </button>
-              <div id="tesourariaDropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700">
-                  <ul class="py-2 text-sm w-full" aria-labelledby="tesourariaButton">
-                    @if(hasPermission('usuarios.dashboard_contas_receber')) {
-                      <li>
-                        <a href="/contas_a_receber" class="text-black no-underline block p-2 hover:underline">Contas a receber</a>
-                      </li>
-                    }
-
-                    @if(hasPermission('usuarios.dashboard_contas_pagar')) {
-                      <li>
-                        <a href="/contas_a_pagar" class="text-black no-underline block p-2 hover:underline">Contas a Pagar</a>
-                      </li>
-                    }
-
-                    @if(hasPermission('usuarios.dashboard_tesouraria')) {
-                      <li>
-                        <a href="/tesouraria" class="text-black no-underline block p-2 hover:underline">Tesouraria</a>
-                      </li>
-                    }
-                  </ul>
-              </div>
-            </li>
-          } -->
-
           @for (item of listMenuOptions; track $index) {
-            <app-menu-option
+          <app-menu-option
             [text]="item.text"
             [route]="item.route"
             [hasPermission]="hasPermission.bind(this)"
             [permission]="item.permission"
-            ></app-menu-option>
+          ></app-menu-option>
           }
         </ul>
       </li>
@@ -111,30 +127,54 @@
 
       <!-- TV -->
       @if (hasPermission('usuarios.dashboard_tv')) {
-        <li>
-          <button #menuButtonTv (click)="checkMenuState(menuButtonTv)" type="button" class="flex items-center w-full p-2 gap-4 text-base transition duration-75 rounded-lg group" aria-controls="dropdown-tv" data-collapse-toggle="dropdown-tv">
-            <i-lucide [img]="TvMinimal"></i-lucide>
-            @if (!statusSideBar) {
-              <span class="flex-1 text-left rtl:text-right whitespace-nowrap">TV</span>
-            }
-
-            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-            </svg>
-          </button>
-
-          <app-menus
-            [menus]="subMenusTV"
-            [id]="'dropdown-tv'"
-            [hasPermission]="hasPermission.bind(this)"
+      <li>
+        <button
+          #menuButtonTv
+          (click)="checkMenuState(menuButtonTv)"
+          type="button"
+          class="flex items-center w-full p-2 gap-4 text-base transition duration-75 rounded-lg group"
+          aria-controls="dropdown-tv"
+          data-collapse-toggle="dropdown-tv"
+        >
+          <i-lucide [img]="TvMinimal"></i-lucide>
+          @if (!statusSideBar) {
+          <span class="flex-1 text-left rtl:text-right whitespace-nowrap"
+            >TV</span
           >
-          </app-menus>
-        </li>
+          }
+
+          <svg
+            class="w-3 h-3"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 10 6"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m1 1 4 4 4-4"
+            />
+          </svg>
+        </button>
+
+        <app-menus
+          [menus]="subMenusTV"
+          [id]="'dropdown-tv'"
+          [hasPermission]="hasPermission.bind(this)"
+        >
+        </app-menus>
+      </li>
       }
       <!-- TV -->
     </ul>
     <app-logout [status]="statusSideBar"></app-logout>
-    <div class="contract-sidebar h-[35px] w-[35px] text-white bg-[#02ab10] flex items-center justify-center rounded-full cursor-pointer" (click)="toggleSideBar()">
+    <div
+      class="contract-sidebar h-[35px] w-[35px] text-white bg-[#02ab10] flex items-center justify-center rounded-full cursor-pointer"
+      (click)="toggleSideBar()"
+    >
       <div>
         <i class="bi bi-caret-left-fill" *ngIf="!statusSideBar"></i>
         <i class="bi bi-caret-right-fill" *ngIf="statusSideBar"></i>

@@ -25,6 +25,8 @@ import { TvStructureComponent } from './components/pages/tv-structure/tv-structu
 import { TvInstallationComponent } from './components/pages/tv-installation/tv-installation.component';
 import { TreasuryComponent } from './components/pages/treasury/treasury.component';
 import { AccountPayableComponent } from './components/pages/account-payable/account-payable.component';
+import { UiraunaComponent } from './components/pages/uirauna/uirauna.component';
+import { OrganogramaComponent } from './components/pages/organograma/organograma.component';
 
 export const routes: Routes = [
   {
@@ -40,127 +42,138 @@ export const routes: Routes = [
     path: 'contas_a_receber',
     component: BillsToReceiveComponent,
     canActivate: [authGuard, accessGuard],
-    data: { accessRules: "usuarios.dashboard_contas_receber"}
+    data: { accessRules: 'usuarios.dashboard_contas_receber' },
   },
   {
     path: 'contas_a_pagar',
     component: AccountPayableComponent,
     canActivate: [authGuard, accessGuard],
-    data: { accessRules: "usuarios.dashboard_contas_pagar"}
+    data: { accessRules: 'usuarios.dashboard_contas_pagar' },
   },
   {
     path: 'tesouraria',
     component: TreasuryComponent,
     canActivate: [authGuard, accessGuard],
-    data: { accessRules: "usuarios.dashboard_tesouraria"}
+    data: { accessRules: 'usuarios.dashboard_tesouraria' },
   },
   {
     path: 'estrutura',
     component: StructureComponent,
     canActivate: [authGuard, accessGuard],
-    data: { accessRules: "usuarios.dashboard_estrutura"}
-
+    data: { accessRules: 'usuarios.dashboard_estrutura' },
   },
   {
     path: 'financeiro_service_desk',
     component: FinancialComponent,
     canActivate: [authGuard, accessGuard],
-    data: { accessRules: "usuarios.dashboard_financeiro_service_desk"}
+    data: { accessRules: 'usuarios.dashboard_financeiro_service_desk' },
   },
   {
     path: 'faturamento',
     component: BillingComponent,
     canActivate: [authGuard, accessGuard],
-    data: { accessRules: "usuarios.dashboard_faturamento"}
+    data: { accessRules: 'usuarios.dashboard_faturamento' },
   },
   {
     path: 'instalacao_suporte',
     component: InstallationComponent,
     canActivate: [authGuard, accessGuard],
-    data: { accessRules: "usuarios.dashboard_instalacao_suporte"}
+    data: { accessRules: 'usuarios.dashboard_instalacao_suporte' },
   },
   {
     path: 'vendas',
     component: SalesComponent,
     canActivate: [authGuard, accessGuard],
-    data: { accessRules: "usuarios.dashboard_comercial"}
+    data: { accessRules: 'usuarios.dashboard_comercial' },
   },
   {
     path: 'direcao',
     component: DirectorsComponent,
     canActivate: [authGuard, accessGuard],
-    data: { accessRules: "usuarios.dashboard_direcao"}
+    data: { accessRules: 'usuarios.dashboard_direcao' },
   },
   {
     path: 'gratificacao_produtividade',
     component: ProductivityGratificationComponent,
     canActivate: [authGuard, accessGuard],
-    data: { accessRules: "usuarios.dashboard_produtividade_gratificacao"}
+    data: { accessRules: 'usuarios.dashboard_produtividade_gratificacao' },
   },
   {
     path: 'gratificacao_produtividade_estrutura',
     component: TvStructureComponent,
     canActivate: [authGuard, accessGuard],
-    data: { accessRules: "usuarios.dashboard_estrutura"}
+    data: { accessRules: 'usuarios.dashboard_estrutura' },
   },
   {
     path: 'gratificacao_produtividade_instalacao',
     component: TvInstallationComponent,
     canActivate: [authGuard, accessGuard],
-    data: { accessRules: "usuarios.dashboard_instalacao_suporte"}
+    data: { accessRules: 'usuarios.dashboard_instalacao_suporte' },
   },
   {
     path: 'auditoria',
     component: AuditComponent,
     canActivate: [authGuard, accessGuard],
-    data: { accessRules: "usuarios.dashboard_auditoria"}
+    data: { accessRules: 'usuarios.dashboard_auditoria' },
   },
   {
     path: 'evolucao_meta',
     component: TvCommercialComponent,
     canActivate: [authGuard, accessGuard],
-    data: { accessRules: "usuarios.dashboard_tv"}
+    data: { accessRules: 'usuarios.dashboard_tv' },
   },
   {
     path: 'relatorio_ordens_servico',
     component: OsComponent,
     canActivate: [authGuard, accessGuard],
-    data: { accessRules: "usuarios.dashboard_tv"}
+    data: { accessRules: 'usuarios.dashboard_tv' },
   },
   {
     path: 'relatorio_rh',
     component: RhComponent,
     canActivate: [authGuard, accessGuard],
-    data: { accessRules: "usuarios.dashboard_rh"}
+    data: { accessRules: 'usuarios.dashboard_rh' },
   },
   {
     path: 'relatorio_leads',
     component: LeadsComponent,
     canActivate: [authGuard, accessGuard],
-    data: { accessRules: "usuarios.dashboard_leads"}
+    data: { accessRules: 'usuarios.dashboard_leads' },
   },
   {
     path: 'relatorio_itaporanga',
     component: ItaporangaComponent,
     canActivate: [authGuard, accessGuard],
-    data: { accessRules: "usuarios.dashboard_itaporanga"}
+    data: { accessRules: 'usuarios.dashboard_itaporanga' },
   },
   {
     path: 'relatorio_frota',
     component: FleetComponent,
     canActivate: [authGuard, accessGuard],
-    data: { accessRules: "usuarios.dashboard_frota"}
+    data: { accessRules: 'usuarios.dashboard_frota' },
   },
   {
     path: 'marketing',
     component: MarketingComponent,
     canActivate: [authGuard, accessGuard],
-    data: { accessRules: "usuarios.dashboard_marketing"}
+    data: { accessRules: 'usuarios.dashboard_marketing' },
   },
   {
     path: 'relatorio_cgr',
     component: CgrComponent,
     canActivate: [authGuard, accessGuard],
-    data: { accessRules: "usuarios.dashboard_cgr"}
+    data: { accessRules: 'usuarios.dashboard_cgr' },
+  },
+  {
+    path: 'migracao_uirauna',
+    component: UiraunaComponent,
+    canActivate: [authGuard, accessGuard],
+    data: { accessRules: 'usuarios.dashboard_migracao_uirauna' },
+  },
+  {
+    path: 'organograma',
+    component: OrganogramaComponent,
+    canActivate: [authGuard, accessGuard],
+    data: { accessRules: 'usuarios.dashboard_direcao' },
   },
 ];

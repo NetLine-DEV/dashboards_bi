@@ -5,7 +5,14 @@ import { LoginService } from '../../services/login/login.service';
 import { Router } from '@angular/router';
 import { iMenuItemDrawer } from '../../models/menuItem.model';
 import { initFlowbite } from 'flowbite';
-import { LucideAngularModule, ClipboardCheck, CircleDollarSign, SquareKanban, TvMinimal, SquareArrowOutUpLeft } from 'lucide-angular';
+import {
+  LucideAngularModule,
+  ClipboardCheck,
+  CircleDollarSign,
+  SquareKanban,
+  TvMinimal,
+  SquareArrowOutUpLeft,
+} from 'lucide-angular';
 import { LogoComponent } from '../logo/logo.component';
 import { SubmenusComponent } from '../submenus/submenus.component';
 import { MenusComponent } from '../menus/menus.component';
@@ -15,11 +22,20 @@ import { LogoutComponent } from '../logout/logout.component';
 @Component({
   selector: 'sidebar-component',
   standalone: true,
-  imports: [NgbDropdownModule, NgClass, NgIf, LucideAngularModule, LogoComponent, MenusComponent, SubmenusComponent, MenuOptionComponent, LogoutComponent],
+  imports: [
+    NgbDropdownModule,
+    NgClass,
+    NgIf,
+    LucideAngularModule,
+    LogoComponent,
+    MenusComponent,
+    SubmenusComponent,
+    MenuOptionComponent,
+    LogoutComponent,
+  ],
   templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.scss'
+  styleUrl: './sidebar.component.scss',
 })
-
 export class SidebarComponent implements OnInit, AfterViewInit {
   readonly ClipboardCheck = ClipboardCheck;
   readonly CircleDollarSign = CircleDollarSign;
@@ -32,65 +48,182 @@ export class SidebarComponent implements OnInit, AfterViewInit {
   data_user = this.authService.decodedToken();
   permissions: string[] = this.data_user.permissoes || [];
 
-  permissoesBonificacao: string [] = [
-    'usuarios.dashboard_produtividade_gratificacao', 'usuarios.dashboard_estrutura', 'usuarios.dashboard_instalacao_suporte'
+  permissoesBonificacao: string[] = [
+    'usuarios.dashboard_produtividade_gratificacao',
+    'usuarios.dashboard_estrutura',
+    'usuarios.dashboard_instalacao_suporte',
   ];
 
-  permissoesGestao: string [] = [
-    'usuarios.dashboard_auditoria', 'usuarios.dashboard_cgr', 'usuarios.dashboard_comercial', 'usuarios.dashboard_leads', 'usuarios.dashboard_marketing', 'usuarios.dashboard_contas_receber', 'usuarios.dashboard_contas_pagar', 'usuarios.dashboard_tesouraria', 'usuarios.dashboard_direcao', 'usuarios.dashboard_estrutura', 'usuarios.dashboard_financeiro_service_desk', 'usuarios.dashboard_rh', 'usuarios.dashboard_instalacao_suporte', 'usuarios.dashboard_itaporanga', 'usuarios.dashboard_frota'
+  permissoesGestao: string[] = [
+    'usuarios.dashboard_auditoria',
+    'usuarios.dashboard_cgr',
+    'usuarios.dashboard_comercial',
+    'usuarios.dashboard_leads',
+    'usuarios.dashboard_marketing',
+    'usuarios.dashboard_contas_receber',
+    'usuarios.dashboard_contas_pagar',
+    'usuarios.dashboard_tesouraria',
+    'usuarios.dashboard_direcao',
+    'usuarios.dashboard_estrutura',
+    'usuarios.dashboard_financeiro_service_desk',
+    'usuarios.dashboard_rh',
+    'usuarios.dashboard_instalacao_suporte',
+    'usuarios.dashboard_itaporanga',
+    'usuarios.dashboard_frota',
+    'usuarios.dashboard_migracao_uirauna',
   ];
 
-  permissoesComercialMarketing: string [] = [
-    'usuarios.dashboard_comercial', 'usuarios.dashboard_leads', 'usuarios.dashboard_marketing'
+  permissoesComercialMarketing: string[] = [
+    'usuarios.dashboard_comercial',
+    'usuarios.dashboard_leads',
+    'usuarios.dashboard_marketing',
   ];
 
-  permissoesTesouraria: string [] = [
-    'usuarios.dashboard_tesouraria', 'usuarios.dashboard_contas_receber', 'usuarios.dashboard_contas_pagar'
+  permissoesTesouraria: string[] = [
+    'usuarios.dashboard_tesouraria',
+    'usuarios.dashboard_contas_receber',
+    'usuarios.dashboard_contas_pagar',
   ];
 
   subMenusBonificacao: iMenuItemDrawer[] = [
-    { route: '/gratificacao_produtividade', text: 'Bonificação', permission: 'usuarios.dashboard_produtividade_gratificacao' },
-    { route: '/gratificacao_produtividade_estrutura', text: 'Estrutura', permission: 'usuarios.dashboard_estrutura' },
-    { route: '/gratificacao_produtividade_instalacao', text: 'Instalação e Suporte', permission: 'usuarios.dashboard_instalacao_suporte' }
+    {
+      route: '/gratificacao_produtividade',
+      text: 'Bonificação',
+      permission: 'usuarios.dashboard_produtividade_gratificacao',
+    },
+    {
+      route: '/gratificacao_produtividade_estrutura',
+      text: 'Estrutura',
+      permission: 'usuarios.dashboard_estrutura',
+    },
+    {
+      route: '/gratificacao_produtividade_instalacao',
+      text: 'Instalação e Suporte',
+      permission: 'usuarios.dashboard_instalacao_suporte',
+    },
   ];
 
   subMenuComercialMarketing: iMenuItemDrawer[] = [
-    { route: '/relatorio_leads', text: 'Leads', permission: 'usuarios.dashboard_leads' },
-    { route: '/marketing', text: 'Marketing', permission: 'usuarios.dashboard_marketing' },
-    { route: '/vendas', text: 'Vendas', permission: 'usuarios.dashboard_comercial' }
+    {
+      route: '/relatorio_leads',
+      text: 'Leads',
+      permission: 'usuarios.dashboard_leads',
+    },
+    {
+      route: '/marketing',
+      text: 'Marketing',
+      permission: 'usuarios.dashboard_marketing',
+    },
+    {
+      route: '/vendas',
+      text: 'Vendas',
+      permission: 'usuarios.dashboard_comercial',
+    },
   ];
 
   subMenuTesouraria: iMenuItemDrawer[] = [
-    { route: '/contas_a_receber', text: 'Contas a receber', permission: 'usuarios.dashboard_contas_receber' },
-    { route: '/contas_a_pagar', text: 'Contas a pagar', permission: 'usuarios.dashboard_contas_pagar' },
-    { route: '/tesouraria', text: 'Relatório Tesouraria', permission: 'usuarios.dashboard_tesouraria' }
+    {
+      route: '/contas_a_receber',
+      text: 'Contas a receber',
+      permission: 'usuarios.dashboard_contas_receber',
+    },
+    {
+      route: '/contas_a_pagar',
+      text: 'Contas a pagar',
+      permission: 'usuarios.dashboard_contas_pagar',
+    },
+    {
+      route: '/tesouraria',
+      text: 'Relatório Tesouraria',
+      permission: 'usuarios.dashboard_tesouraria',
+    },
   ];
 
   subMenusTV: iMenuItemDrawer[] = [
-    { route: '/evolucao_meta', text: 'Meta', permission: 'usuarios.dashboard_tv' },
-    { route: '/relatorio_ordens_servico', text: 'OS', permission: 'usuarios.dashboard_tv' }
+    {
+      route: '/evolucao_meta',
+      text: 'Meta',
+      permission: 'usuarios.dashboard_tv',
+    },
+    {
+      route: '/relatorio_ordens_servico',
+      text: 'OS',
+      permission: 'usuarios.dashboard_tv',
+    },
   ];
 
   listMenuOptions: any[] = [
-    {text: 'Auditoria', route: '/auditoria', permission: 'usuarios.dashboard_auditoria'},
+    {
+      text: 'Auditoria',
+      route: '/auditoria',
+      permission: 'usuarios.dashboard_auditoria',
+    },
 
-    {text: 'CGR', route: '/relatorio_cgr', permission: 'usuarios.dashboard_cgr'},
+    {
+      text: 'CGR',
+      route: '/relatorio_cgr',
+      permission: 'usuarios.dashboard_cgr',
+    },
 
-    {text: 'Direção', route: '/direcao', permission: 'usuarios.dashboard_direcao'},
+    {
+      text: 'Direção',
+      route: '/direcao',
+      permission: 'usuarios.dashboard_direcao',
+    },
 
-    {text: 'Estrutura', route: '/estrutura', permission: 'usuarios.dashboard_estrutura'},
+    {
+      text: 'Estrutura',
+      route: '/estrutura',
+      permission: 'usuarios.dashboard_estrutura',
+    },
 
-    {text: 'Faturamento', route: '/faturamento', permission: 'usuarios.dashboard_faturamento'},
+    {
+      text: 'Faturamento',
+      route: '/faturamento',
+      permission: 'usuarios.dashboard_faturamento',
+    },
 
-    {text: 'Financeiro / Service desk', route: '/financeiro_service_desk', permission: 'usuarios.dashboard_financeiro_service_desk'},
+    {
+      text: 'Financeiro / Service desk',
+      route: '/financeiro_service_desk',
+      permission: 'usuarios.dashboard_financeiro_service_desk',
+    },
 
-    {text: 'Frota', route: '/relatorio_frota', permission: 'usuarios.dashboard_frota'},
+    {
+      text: 'Frota',
+      route: '/relatorio_frota',
+      permission: 'usuarios.dashboard_frota',
+    },
 
-    {text: 'Itaporanga', route: '/relatorio_itaporanga', permission: 'usuarios.dashboard_itaporanga'},
+    {
+      text: 'Itaporanga',
+      route: '/relatorio_itaporanga',
+      permission: 'usuarios.dashboard_itaporanga',
+    },
 
-    {text: 'Recursos humanos', route: '/relatorio_rh', permission: 'usuarios.dashboard_rh'},
+    {
+      text: 'Recursos humanos',
+      route: '/relatorio_rh',
+      permission: 'usuarios.dashboard_rh',
+    },
 
-    {text: 'Serviço e suporte', route: '/instalacao_suporte', permission: 'usuarios.dashboard_instalacao_suporte'},
+    {
+      text: 'Serviço e suporte',
+      route: '/instalacao_suporte',
+      permission: 'usuarios.dashboard_instalacao_suporte',
+    },
+
+    {
+      text: 'Migração Uiraúna',
+      route: '/migracao_uirauna',
+      permission: 'usuarios.dashboard_migracao_uirauna',
+    },
+
+    {
+      text: 'Organograma',
+      route: '/organograma',
+      permission: 'usuarios.dashboard_direcao',
+    },
   ];
 
   ngOnInit(): void {
@@ -132,7 +265,7 @@ export class SidebarComponent implements OnInit, AfterViewInit {
   }
 
   hasAnyPermission(rules: string[]): boolean {
-    return rules.some(permission => this.hasPermission(permission));
+    return rules.some((permission) => this.hasPermission(permission));
   }
 
   checkMenuState(menuButton: HTMLElement): void {
