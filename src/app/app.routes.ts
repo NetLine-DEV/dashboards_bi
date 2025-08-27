@@ -135,12 +135,6 @@ export const routes: Routes = [
     data: { accessRules: 'usuarios.dashboard_rh' },
   },
   {
-    path: 'relatorio_leads',
-    component: LeadsComponent,
-    canActivate: [authGuard, accessGuard],
-    data: { accessRules: 'usuarios.dashboard_leads' },
-  },
-  {
     path: 'relatorio_itaporanga',
     component: ItaporangaComponent,
     canActivate: [authGuard, accessGuard],

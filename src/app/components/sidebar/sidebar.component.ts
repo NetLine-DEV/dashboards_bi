@@ -58,7 +58,6 @@ export class SidebarComponent implements OnInit, AfterViewInit {
     'usuarios.dashboard_auditoria',
     'usuarios.dashboard_cgr',
     'usuarios.dashboard_comercial',
-    'usuarios.dashboard_leads',
     'usuarios.dashboard_marketing',
     'usuarios.dashboard_contas_receber',
     'usuarios.dashboard_contas_pagar',
@@ -104,11 +103,6 @@ export class SidebarComponent implements OnInit, AfterViewInit {
   ];
 
   subMenuComercialMarketing: iMenuItemDrawer[] = [
-    {
-      route: '/relatorio_leads',
-      text: 'Leads',
-      permission: 'usuarios.dashboard_leads',
-    },
     {
       route: '/marketing',
       text: 'Marketing',
