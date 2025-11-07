@@ -208,12 +208,6 @@ export class SidebarComponent implements OnInit, AfterViewInit {
     },
 
     {
-      text: 'Migração Uiraúna',
-      route: '/migracao_uirauna',
-      permission: 'usuarios.dashboard_migracao_uirauna',
-    },
-
-    {
       text: 'Organograma',
       route: '/organograma',
       permission: 'usuarios.dashboard_direcao',

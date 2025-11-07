@@ -159,12 +159,6 @@ export const routes: Routes = [
     data: { accessRules: 'usuarios.dashboard_cgr' },
   },
   {
-    path: 'migracao_uirauna',
-    component: UiraunaComponent,
-    canActivate: [authGuard, accessGuard],
-    data: { accessRules: 'usuarios.dashboard_migracao_uirauna' },
-  },
-  {
     path: 'organograma',
     component: OrganogramaComponent,
     canActivate: [authGuard, accessGuard],
