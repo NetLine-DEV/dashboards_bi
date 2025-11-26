@@ -70,6 +70,7 @@ export class SidebarComponent implements OnInit, AfterViewInit {
     'usuarios.dashboard_itaporanga',
     'usuarios.dashboard_frota',
     'usuarios.dashboard_migracao_uirauna',
+    'usuarios.dashboard_cs',
   ];
 
   permissoesComercialMarketing: string[] = [
