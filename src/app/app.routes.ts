@@ -164,4 +164,10 @@ export const routes: Routes = [
     canActivate: [authGuard, accessGuard],
     data: { accessRules: 'usuarios.dashboard_direcao' },
   },
+  {
+    path: 'dashboard_cs',
+    component: UiraunaComponent,
+    canActivate: [authGuard, accessGuard],
+    data: { accessRules: 'usuarios.dashboard_direcao' },
+  },
 ];

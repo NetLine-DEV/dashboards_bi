@@ -212,6 +212,11 @@ export class SidebarComponent implements OnInit, AfterViewInit {
       route: '/organograma',
       permission: 'usuarios.dashboard_direcao',
     },
+    {
+      text: 'CS',
+      route: '/dashboard_cs',
+      permission: 'usuarios.dashboard_cs',
+    },
   ];
 
   ngOnInit(): void {
