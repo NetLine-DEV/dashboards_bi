@@ -168,6 +168,6 @@ export const routes: Routes = [
     path: 'dashboard_cs',
     component: UiraunaComponent,
     canActivate: [authGuard, accessGuard],
-    data: { accessRules: 'usuarios.dashboard_direcao' },
+    data: { accessRules: 'usuarios.dashboard_cs' },
   },
 ];
